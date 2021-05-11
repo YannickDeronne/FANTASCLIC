@@ -1,0 +1,11 @@
+fantasclic est un site répertoriant des films du cinéma fantastique
+
+1. Description des pages :
+
+
+2. Fonctionnalités :
+
+
+3. Description des entités :
+
+

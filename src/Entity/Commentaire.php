@@ -43,10 +43,6 @@ class Commentaire
      */
     private $film;
 
-    /**
-     * @ORM\ManyToOne(targetEntity=Film::class, inversedBy="avisUtilisateur")
-     */
-    private $avis;
 
     public function getId(): ?int
     {
@@ -113,15 +109,4 @@ class Commentaire
         return $this;
     }
 
-    public function getAvis(): ?Film
-    {
-        return $this->avis;
-    }
-
-    public function setAvis(?Film $avis): self
-    {
-        $this->avis = $avis;
-
-        return $this;
-    }
 }
