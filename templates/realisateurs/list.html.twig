@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réalisateurs{% endblock %}
+
+{% block body %}
+<h1>Liste des réalisateurs</h1>
+<table class="table" id="author_table">
+    <thead>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Détails</th>
+    </thead>
+    <tbody>
+        {% for realisateur in realisateurList %}
+        <tr>
+            <td>{{ realisateur.prenom }}</td>
+            <td>{{ realisateur.nom }}</td>
+            <td>
+                <a href={{ path('detail_realisateur', {id:realisateur.id})}} class="btn btn-primary">Voir plus</a></li>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
