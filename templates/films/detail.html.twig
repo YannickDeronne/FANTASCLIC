@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+
+{% block title %} {{ film.titre }} {% endblock %}
+
+
+{% block body %}
+
+    {% for message in app.flashes('notif') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <h2 class="text-center"> {{ film.titre }} ({{ film.annee }}) </h2>
+    <h4 class="text-center"> de {{ film.realisateur.prenom }} {{ film.realisateur.nom }}</h4>
+    <br>
+    <p> <strong> Genre : </strong> {{ film.genre }} </p>
+    <p> <strong> Durée (en minutes) : </strong> {{ film.duree }} </p>
+    <p> <strong> Casting : </strong> {{ film.casting }} </p>
+    <p> <strong> Signalétique jeunesse : </strong> {{ film.sj }} </p>
+    <p> <strong> Synopsis : </strong> {{ film.synopsis }} </p>
+    <p> <strong> Note de l'admin : </strong> {{ film.noteAdmin }} /20 </p>
+    <p> <strong> Note moyenne des utilisateurs : </strong> {{ film.commentaire.noteUtilisateur }} /20 </p>
+    <p> <strong> Critiques des utilisateurs : </strong> {{ film.commentaire.avisUtilisateur }} </p>
+    <p> <strong> Disponible sur : </strong> {{ film.dispo }} </p>
+    <p> <strong> Bande-annonce : </strong> {{ film.bandeAnnonce }} </p>
+    <p> <strong> OST : </strong> {{ film.ost }} </p>
+    <p> <strong> Affiche : </strong> {{ film.affiche }} </p>
+    <p> <strong> Si vous avez aimé ce film, vous pourriez aimer : </strong> {{ film.suggestion }} </p>
+
+
+        {% if is_granted("ROLE_USER") %}
+        <a class="btn btn-success" href={{ path('noter_film', {id:film.id}) }} > Noter ce film </a>
+    {% else %}
+        <p> Veuillez-vous <a href={{ path('app_login') }} > connecter </a>
+        ou vous <a href={{ path('enregistrer_utilisateur') }} > enregistrer </a>
+        pour noter et/ou laisser un avis sur ce film. </p>
+    {% endif %}
+
+
+{% endblock %}

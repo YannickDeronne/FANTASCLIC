@@ -6,6 +6,7 @@ use App\Repository\FilmRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=FilmRepository::class)
@@ -36,6 +37,7 @@ class Film
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Assert\Range(min=0, max=999, notInRangeMessage = "La durée doit être comprise entre 0 et 999 minutes.")
      */
     private $duree;
 
