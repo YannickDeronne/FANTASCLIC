@@ -60,7 +60,7 @@ class RealisateurController extends AbstractController
     }
 
     /**
-     * @Route("/realisateurs/{id}", name="detail_realisateur")
+     * @Route("/realisateurs/{id}", name="detail_realisateur",  requirements={"id"="\d+"})
      */
     public function detailRealisateur(Request $request, int $id)
     {
@@ -71,4 +71,40 @@ class RealisateurController extends AbstractController
 
         return $this->render('realisateurs/detail.html.twig', ['realisateur' => $realisateur]);
     }
+
+    /**
+     * @Route("/realisateurs/update/{id}", name="update_realisateur", requirements={"id"="\d+"})
+     *
+     */
+    public function updateRealisateur(Request $request, int $id)
+    {
+        $realisateur = $this->realisateurRepository->find($id);
+        if ($realisateur == null) {
+            throw new HttpException(404);
+        }
+
+        $form = $this->createForm(RealisateurType::class, $realisateur);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->manager->persist($realisateur);
+            $this->manager->flush();
+            return $this->redirectToRoute('list_realisateur');
+        }
+
+        return $this->render('realisateurs/update.html.twig', ['form' => $form->createView()]);
+    }
+
+    /**
+     *@Route("realisateur/delete/{id}", name="delete_realisateur", requirements={"id"="\d+"})
+     */
+    public function deleteRealisateur(Request $request, int $id)
+    {
+        $realisateur = $this->realisateurRepository->find($id);
+
+        $this->manager->remove($realisateur);
+        $this->manager->flush();
+
+        return $this->redirectToRoute('list_realisateur');
+    }
+
 }
