@@ -32,8 +32,8 @@ class AccueilController extends AbstractController {
      */
     public function home(Request $request) {
 
-        $listefilm = $this->filmRepository->findAll();
+        $listfilm = $this->filmRepository->findAll();
 
-        return $this->render("accueil.html.twig", ['listefilm' => $listefilm]);
+        return $this->render("accueil.html.twig", ['listfilm' => $listfilm]);
     }
 }

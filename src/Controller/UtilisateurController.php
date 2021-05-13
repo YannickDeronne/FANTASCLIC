@@ -29,8 +29,8 @@ class UtilisateurController extends AbstractController {
     }
 
 
-        /**
-     * @Route("/enregistrer", name="enregistrer_utilisateur")
+    /**
+     * @Route("/register", name="register_utilisateur")
      */
     public function registerUtilisateur(Request $request) {
         $utilisateur = new Utilisateur();
@@ -47,12 +47,12 @@ class UtilisateurController extends AbstractController {
             return $this->redirectToRoute('app_login');
         }
         
-        return $this->render('utilisateurs/creer_utilisateur.html.twig', ['form' => $form->createView()]);   
+        return $this->render('utilisateurs/create_utilisateur.html.twig', ['form' => $form->createView()]);   
     }
 
 
     /**
-     * @Route("/admin/enregistrer", name="enregistrer_admin")
+     * @Route("/admin/register", name="register_admin")
      */
     public function registerAdmin(Request $request) {
         $utilisateur = new Utilisateur();
@@ -69,7 +69,7 @@ class UtilisateurController extends AbstractController {
             return $this->redirectToRoute('app_login');
         }
         
-        return $this->render('utilisateurs/creer_utilisateur.html.twig', ['form' => $form->createView()]);  
+        return $this->render('utilisateurs/create_utilisateur.html.twig', ['form' => $form->createView()]);  
     }
 
 }

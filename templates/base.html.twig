@@ -22,7 +22,6 @@
 
     <body>
 
-        
 
         <div class="container-fluid">
 
@@ -31,7 +30,7 @@
                 <ul class="navbar-nav mr-auto">
 
                     <li class="nav-item">
-                        <a class="nav-link" href= {{ path('liste_film') }} > LES FILMS </a>
+                        <a class="nav-link" href= {{ path('list_film') }} > LES FILMS </a>
                     </li>
 
                     <li class="nav-item">
@@ -56,7 +55,7 @@
 
                     <li class="nav-item">
                         {% if is_granted("ROLE_ADMIN") %}
-                            <a class="nav-link" href= {{ path('enregistrer_admin') }}  > Admin </a>
+                            <a class="nav-link" href= {{ path('register_admin') }}  > Admin </a>
                         {% endif %}
                     </li>
         

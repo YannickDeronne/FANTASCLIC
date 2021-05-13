@@ -74,7 +74,6 @@ class RealisateurController extends AbstractController
 
     /**
      * @Route("/realisateurs/update/{id}", name="update_realisateur", requirements={"id"="\d+"})
-     *
      */
     public function updateRealisateur(Request $request, int $id)
     {
