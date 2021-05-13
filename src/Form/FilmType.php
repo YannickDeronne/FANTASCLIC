@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\Film;
 use App\Entity\Genre;
 use App\Entity\Realisateur;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -19,9 +20,12 @@ class FilmType extends AbstractType {
         $builder
             ->add('titre', TextType::class, ['label' => 'Titre'])
 
-            ->add('annee', IntegerType::class,['label' => 'Année', 'attr' => ['min' => 1850]])
+            ->add('annee', IntegerType::class,['label' => 'Année', 
+                                                'required' => false,
+                                                'attr' => ['min' => 1850]])
 
             ->add('genre', EntityType::class, ['label' => 'Genre',
+                                                'required' => false,
                                                 'class' => Genre::class,
                                                 'choice_label' => 'nom',
                                                 'multiple' => true,
@@ -50,8 +54,9 @@ class FilmType extends AbstractType {
 
             ->add('affiche', TextType::class, ['label' => 'Affiche'])
 
-            ->add('suggestion', TextType::class, ['label' => 'Vous avez aimé ce film, vous pourriez aimer'])
-
+            ->add('suggestion', EntityType::class, ['label' => 'Vous avez aimé ce film, vous pourriez aimer',
+                                                    'class' => Film::class,
+                                                    'choice_label' => 'titre'])
             ->add('save', SubmitType::class, ['label' => 'Enregistrer']);
     }
 }
