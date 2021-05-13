@@ -11,13 +11,21 @@
 
     {% for film in filmList %}
     <ul>
-        <li> affiche </li>
+        <li> (emplacement affiche) {{ film.affiche }} 
+            {# {% if is_granted('ROLE_ADMIN') %}  #}
+            <a class="btn btn-primary" href={{ path('detail_film', {id:film.id}) }} > En cliquant, sur l'affiche, on verra les détails du film </a>
+            {# {% endif %} #}
+        </li>
 
         <li>
-            {{ film.titre }} ({{ film.annee }}) 
+            {{ film.titre }} 
+            {% if 'film.annee' != null %}
+                ({{ film.annee }})
+            {% else %}    {# Je veux faire disparaître les parenthèses si l'admin ne précise pas l'année #}
+            {% endif %}
 
             {# {% if is_granted('ROLE_ADMIN') %}  #}
-            <a class="btn btn-success" href={{ path('update_film', {id:film.id}) }}> Modifier </a> 
+            <a class="btn btn-warning" href={{ path('update_film', {id:film.id}) }}> Modifier </a> 
             {# {% endif %} #}
 
             {# {% if is_granted('ROLE_ADMIN') %}  #}
