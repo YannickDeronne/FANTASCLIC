@@ -39,13 +39,14 @@ class FilmController extends AbstractController {
     public function createFilm (Request $request) {
 
         $film = new Film();
+
         $form = $this->createForm(FilmType::class, $film);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
-
             $this->manager->persist($film);
             $this->manager->flush();
+            return $this->redirectToRoute('list_film');
         }
         
         return $this->render("films/create.html.twig", ['form' => $form->createView()]);
@@ -57,9 +58,9 @@ class FilmController extends AbstractController {
      */
     public function listFilm(Request $request) {
 
-        $listFilm = $this->filmRepository->findAll();
+        $filmList = $this->filmRepository->findAll();
 
-        return $this->render('films/list.html.twig', ['listfilm' => $listFilm]);
+        return $this->render('films/list.html.twig', ['filmList' => $filmList]);
     }
 
 
@@ -103,6 +104,7 @@ class FilmController extends AbstractController {
     /**
      *@Route("film/delete/{id}", name="delete_film", requirements={"id"="\d+"})
      */
+    // @IsGranted("ROLE_ADMIN") ligne 105
     public function deletefilm(Request $request, int $id) {
         $film = $this->filmRepository->find($id);
 
