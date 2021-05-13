@@ -12,28 +12,57 @@
     {% endfor %}
 
     <h2 class="text-center"> {{ film.titre }} ({{ film.annee }}) </h2>
-    <h4 class="text-center"> de {{ film.realisateur.prenom }} {{ film.realisateur.nom }}</h4>
+    <h4 class="text-center"> de 
+        {% if film.realisateur.prenom is not null %} {{ film.realisateur.prenom }} {% endif %} 
+        {{ film.realisateur.nom }} </h4>
     <br>
-    <p> <strong> Genre : </strong> {{ film.genre }} </p>
-    <p> <strong> Durée (en minutes) : </strong> {{ film.duree }} </p>
-    <p> <strong> Casting : </strong> {{ film.casting }} </p>
-    <p> <strong> Signalétique jeunesse : </strong> {{ film.sj }} </p>
-    <p> <strong> Synopsis : </strong> {{ film.synopsis }} </p>
-    <p> <strong> Note de l'admin : </strong> {{ film.noteAdmin }} /20 </p>
-    <p> <strong> Note moyenne des utilisateurs : </strong> {{ film.commentaire.noteUtilisateur }} /20 </p>
-    <p> <strong> Critiques des utilisateurs : </strong> {{ film.commentaire.avisUtilisateur }} </p>
-    <p> <strong> Disponible sur : </strong> {{ film.dispo }} </p>
-    <p> <strong> Bande-annonce : </strong> {{ film.bandeAnnonce }} </p>
-    <p> <strong> OST : </strong> {{ film.ost }} </p>
-    <p> <strong> Affiche : </strong> {{ film.affiche }} </p>
-    <p> <strong> Si vous avez aimé ce film, vous pourriez aimer : </strong> {{ film.suggestion }} </p>
+    <p> <strong> Genre : </strong>
+    {% if film.genre is not null %} {{ film.genre }} {% endif %}</p>
 
+    <p> <strong> Durée (en minutes) : </strong>
+    {% if film.duree is not null %} {{ film.duree }} {% endif %} </p>
 
-        {% if is_granted("ROLE_USER") %}
-        <a class="btn btn-success" href={{ path('noter_film', {id:film.id}) }} > Noter ce film </a>
+    <p> <strong> Casting : </strong>
+    {% if film.casting is not null %} {{ film.casting }} {% endif %} </p>
+
+    <p> <strong> Signalétique jeunesse : </strong> 
+    {% if film.sj is not null %} {{ film.sj }} {% endif %} </p>
+
+    <p> <strong> Synopsis : </strong>
+    {% if film.synopsis is not null %} {{ film.synopsis }} {% endif %} </p>
+
+    <p> <strong> Note de l'admin : </strong>
+    {% if film.noteAdmin is not null %} {{ film.noteAdmin }} /20 {% endif %} </p>
+
+    <p> <strong> Note moyenne des utilisateurs : </strong>
+    {% if film.commentaire.noteUtilisateur is not null %} {{ film.commentaire.noteUtilisateur }} /20 {% endif %} </p>
+
+    <p> <strong> Critiques des utilisateurs : </strong>
+    {% if film.commentaire.avisUtilisateur is not null %} {{ film.commentaire.avisUtilisateur }} {% endif %} </p>
+
+    <p> <strong> Disponible sur : </strong>
+    {% if film.dispo is not null %} {{ film.dispo }} {% endif %} </p>
+
+    <p> <strong> Bande-annonce : </strong>
+    {% if film.bandeAnnonce is not null %} {{ film.bandeAnnonce }} {% endif %} </p>
+
+    <p> <strong> OST : </strong>
+    {% if film.ost is not null %} {{ film.ost }} {% endif %} </p>
+
+    <p> <strong> Affiche : </strong>
+    {% if film.affiche is not null %} {{ film.affiche }} {% endif %} </p>
+
+    <p> <strong> Si vous avez aimé ce film, vous pourriez aimer : </strong>
+    {% if film.suggestion is not null %} {{ film.suggestion }} {% endif %} </p>
+
+    <!-- problème avec suggestion : many to many dans films, n'apparait pas dans phpMyAdmin -->
+<!-- The property "suggestion" in class "App\Entity\Film" can be defined with the methods "addSuggestion()", "removeSuggestion()" but the new value must be an array or an instance of \Traversable. -->
+
+    {% if is_granted("ROLE_USER") %}
+        <a class="btn btn-success" href={{ path('note_film', {id:film.id}) }} > Noter ce film </a>
     {% else %}
-        <p> Veuillez-vous <a href={{ path('app_login') }} > connecter </a>
-        ou vous <a href={{ path('enregistrer_utilisateur') }} > enregistrer </a>
+        <p> Veuillez-vous <a href={{ path('app_login') }} > connecter </a> 
+        ou vous <a href={{ path('register_utilisateur') }} > enregistrer </a>
         pour noter et/ou laisser un avis sur ce film. </p>
     {% endif %}
 

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Liste des films {% endblock %}
+
+
+{% block body %}
+
+<h1 class="text-center"> Liste des films </h1>
+
+<table>
+
+    {% for film in filmList %}
+    <ul>
+        <li> affiche </li>
+
+        <li>
+            {{ film.titre }} ({{ film.annee }}) 
+
+            {# {% if is_granted('ROLE_ADMIN') %}  #}
+            <a class="btn btn-success" href={{ path('update_film', {id:film.id}) }}> Modifier </a> 
+            {# {% endif %} #}
+
+            {# {% if is_granted('ROLE_ADMIN') %}  #}
+            <a class="btn btn-danger" href={{ path('delete_film', {id:film.id}) }}> Supprimer </a> 
+            {# {% endif %} #}
+        </li>
+    </ul>
+
+    {% endfor %}
+</table>
+
+<br> <br> <br>
+
+{# {% if is_granted('ROLE_ADMIN') %}  #}
+<a class="btn btn-primary" href={{ path('create_film') }}> Ajouter un film </a> 
+{# {% endif %} #}
+
+{% endblock %}
