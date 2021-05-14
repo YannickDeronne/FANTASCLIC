@@ -13,30 +13,32 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class FilmType extends AbstractType {
+class FilmType extends AbstractType
+{
 
-    public function buildForm(FormBuilderInterface $builder, array $options) {
-        
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+
         $builder
             ->add('titre', TextType::class, ['label' => 'Titre'])
 
-            ->add('annee', IntegerType::class,['label' => 'Année', 
-                                                'required' => false,
-                                                'attr' => ['min' => 1850]])
+            ->add('annee', IntegerType::class, ['label' => 'Année',
+                'required' => false,
+                'attr' => ['min' => 1850]])
 
             ->add('genre', EntityType::class, ['label' => 'Genre',
-                                                'required' => false,
-                                                'class' => Genre::class,
-                                                'choice_label' => 'nom',
-                                                'multiple' => true,
-                                                'expanded' => true])
+                'required' => false,
+                'class' => Genre::class,
+                'choice_label' => 'nom',
+                'multiple' => true,
+                'expanded' => true])
 
             ->add('duree', IntegerType::class, ['label' => 'Durée en minutes', 'attr' => ['min' => 1]])
 
             ->add('realisateur', EntityType::class, ['label' => 'Réalisateur',
-                                                    'class' => Realisateur::class,
-                                                    'choice_label' => function($realisateur) {
-                                return $realisateur->getPrenom() . " " . $realisateur->getNom();}])
+                'class' => Realisateur::class,
+                'choice_label' => function ($realisateur) {
+                    return $realisateur->getPrenom() . " " . $realisateur->getNom();}])
 
             ->add('casting', TextareaType::class, ['label' => 'Casting', 'attr' => ['rows' => 3]])
 
@@ -55,8 +57,8 @@ class FilmType extends AbstractType {
             ->add('affiche', TextType::class, ['label' => 'Affiche'])
 
             ->add('suggestion', EntityType::class, ['label' => 'Vous avez aimé ce film, vous pourriez aimer',
-                                                    'class' => Film::class,
-                                                    'choice_label' => 'titre'])
+                'class' => Film::class,
+                'choice_label' => 'titre'])
             ->add('save', SubmitType::class, ['label' => 'Enregistrer']);
     }
 }
