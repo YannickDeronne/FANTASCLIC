@@ -19,9 +19,8 @@
 
         <li>
             {{ film.titre }} 
-            {% if 'film.annee' != null %}
+            {% if film.annee is not null %}
                 ({{ film.annee }})
-            {% else %}    {# Je veux faire disparaître les parenthèses si l'admin ne précise pas l'année #}
             {% endif %}
 
             {# {% if is_granted('ROLE_ADMIN') %}  #}
