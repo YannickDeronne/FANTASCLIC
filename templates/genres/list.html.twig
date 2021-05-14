@@ -13,7 +13,7 @@
     <tbody>
         {% for genre in genreList %}
         <tr>
-            <td class="ml-5 mr-5"> {{ genre.nom }} </td>
+            <td> <h5> {{ genre.nom }} </h5> </td>
             <td>
                 <a href={{ path('delete_genre', {id:genre.id}) }} class="btn btn-danger"> Supprimer </a>
             </td>

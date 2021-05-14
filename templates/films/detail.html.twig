@@ -16,15 +16,17 @@
         {% if film.realisateur.prenom is not null %} {{ film.realisateur.prenom }} {% endif %} 
         {{ film.realisateur.nom }} </h4>
     <br>
+
+    {# boucle for sur tout ce qui a une liste #}
     <p> <strong> Genre : </strong>
-    {% if film.genre is not null %} {{ film.genre }} {% endif %}</p> {# boucle for sur tout ce qui a une liste #}
+    {% if film.genre is not null %} 
+    {% for genre in film.genre %}
+        <a href={ path('detail_film', {id: film.id}) }> {{ film.genre }} </a>
+    {% endfor %}
+    {% endif %} </p> 
 
-    {% for film in realisateur.films %}
-<ul>
-    <li><a href={ path('detail_film', {id: film.id}) }>{{ film.titre }}</a></li>
-</ul>
-{% endfor %}
-
+    
+<!--  
     <p> <strong> Durée (en minutes) : </strong>
     {% if film.duree is not null %} {{ film.duree }} {% endif %} </p>
 
@@ -41,10 +43,10 @@
     {% if film.noteAdmin is not null %} {{ film.noteAdmin }} /20 {% endif %} </p>
 
     <p> <strong> Note moyenne des utilisateurs : </strong>
-    {% if film.commentaire.noteUtilisateur is not null %} {{ film.commentaire.noteUtilisateur }} /20 {% endif %} </p>
+    </p>
 
     <p> <strong> Critiques des utilisateurs : </strong>
-    {% if film.commentaire.avisUtilisateur is not null %} {{ film.commentaire.avisUtilisateur }} {% endif %} </p>
+    </p>
 
     <p> <strong> Disponible sur : </strong>
     {% if film.dispo is not null %} {{ film.dispo }} {% endif %} </p>
@@ -59,10 +61,8 @@
     {% if film.affiche is not null %} {{ film.affiche }} {% endif %} </p>
 
     <p> <strong> Si vous avez aimé ce film, vous pourriez aimer : </strong>
-    {% if film.suggestion is not null %} {{ film.suggestion }} {% endif %} </p>
+    {% if film.suggestion is not null %} {{ film.suggestion }} {% endif %} </p> -->
 
-    <!-- problème avec suggestion : many to many dans films, n'apparait pas dans phpMyAdmin -->
-<!-- The property "suggestion" in class "App\Entity\Film" can be defined with the methods "addSuggestion()", "removeSuggestion()" but the new value must be an array or an instance of \Traversable. -->
 
     {% if is_granted("ROLE_USER") %}
         <a class="btn btn-success" href={{ path('note_film', {id:film.id}) }} > Noter ce film </a>
