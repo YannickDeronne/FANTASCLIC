@@ -69,12 +69,14 @@ class FilmType extends AbstractType {
                                             'required' => false])
 
             ->add('affiche', TextType::class, ['label' => 'Affiche',
-                                                'required' => false,])
+                                                'required' => false])
 
-            // ->add('suggestion', EntityType::class, ['label' => 'Vous avez aimé ce film, vous pourriez aimer',
-                                                    // 'required' => false,
-                                                    // 'class' => Film::class,
-                                                    // 'choice_label' => 'titre'])
+            ->add('suggestion', EntityType::class, ['label' => 'Vous avez aimé ce film, vous pourriez aimer',
+                                                    'required' => false,
+                                                    'class' => Film::class,
+                                                    'choice_label' => 'titre',
+                                                    'multiple' => true,
+                                                    'expanded' => true])
 
             ->add('save', SubmitType::class, ['label' => 'Enregistrer']);
     }
