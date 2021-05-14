@@ -8,10 +8,10 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
-class UtilisateurController extends AbstractController {
+class UtilisateurController extends AbstractController
+{
 
     /**
      * @var EntityManagerInterface
@@ -23,21 +23,22 @@ class UtilisateurController extends AbstractController {
      */
     private $encoder;
 
-    public function __construct(EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder) {
+    public function __construct(EntityManagerInterface $manager, UserPasswordEncoderInterface $encoder)
+    {
         $this->manager = $manager;
         $this->encoder = $encoder;
     }
 
-
     /**
      * @Route("/register", name="register_utilisateur")
      */
-    public function registerUtilisateur(Request $request) {
+    public function registerUtilisateur(Request $request)
+    {
         $utilisateur = new Utilisateur();
         $form = $this->createForm(UtilisateurType::class, $utilisateur);
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $utilisateur->setRoles(["ROLE_USER"]);
             $encodedPassword = $this->encoder->encodePassword($utilisateur, $utilisateur->getPassword());
             $utilisateur->setPassword($encodedPassword);
@@ -46,20 +47,20 @@ class UtilisateurController extends AbstractController {
             $this->manager->flush();
             return $this->redirectToRoute('app_login');
         }
-        
-        return $this->render('utilisateurs/create_utilisateur.html.twig', ['form' => $form->createView()]);   
-    }
 
+        return $this->render('utilisateurs/create.html.twig', ['form' => $form->createView()]);
+    }
 
     /**
      * @Route("/admin/register", name="register_admin")
      */
-    public function registerAdmin(Request $request) {
+    public function registerAdmin(Request $request)
+    {
         $utilisateur = new Utilisateur();
         $form = $this->createForm(UtilisateurType::class, $utilisateur);
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $utilisateur->setRoles(["ROLE_ADMIN"]);
             $encodedPassword = $this->encoder->encodePassword($utilisateur, $utilisateur->getPassword());
             $utilisateur->setPassword($encodedPassword);
@@ -68,8 +69,8 @@ class UtilisateurController extends AbstractController {
             $this->manager->flush();
             return $this->redirectToRoute('app_login');
         }
-        
-        return $this->render('utilisateurs/create_utilisateur.html.twig', ['form' => $form->createView()]);  
+
+        return $this->render('utilisateurs/create_utilisateur.html.twig', ['form' => $form->createView()]);
     }
 
 }

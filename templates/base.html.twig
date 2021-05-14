@@ -43,7 +43,15 @@
                     <a class="nav-link text-warning" href={{ path('list_genre') }}> GENRES </a>
                     <a class="nav-link text-warning" href="#"> BIENTÔT À L'AFFICHE </a>
                     <a class="nav-link text-warning" href="#"> TOP DE LA RÉDAC'</a>
-                    <a class="nav-link text-warning" href="#"> CONNEXION </a>
+
+                    {% if is_granted("ROLE_USER") %}
+                    <a class="nav-link" href={{ path('app_logout') }}>SE DECONNECTER</a>
+                    {% else %}
+                    <a class="nav-link" href={{ path('app_login') }}>CONNEXION</a>
+                    {% endif %}
+                    {% if is_granted("ROLE_ADMIN") %}
+                    <a href={{ path('register_admin')}} class="nav-link">Nouveau compte admin</a>
+                    {% endif %} </a>
                 </nav>
             </div>
         </div>
