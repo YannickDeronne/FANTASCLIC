@@ -1,0 +1,76 @@
+{% extends "base.html.twig" %}
+
+{% block title %} {{ film.titre }} {% endblock %}
+
+
+{% block body %}
+
+    {% for message in app.flashes('notif') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+    <h2 class="text-center"> {{ film.titre }} ({{ film.annee }}) </h2>
+    <h4 class="text-center"> de 
+        {% if film.realisateur.prenom is not null %} {{ film.realisateur.prenom }} {% endif %} 
+        {{ film.realisateur.nom }} </h4>
+    <br>
+
+    {# boucle for sur tout ce qui a une liste #}
+    <p> <strong> Genre : </strong>
+    {% if film.genre is not null %} 
+    {% for genre in film.genre %}
+        <a href={ path('detail_film', {id: film.id}) }> {{ film.genre }} </a>
+    {% endfor %}
+    {% endif %} </p> 
+
+    
+<!--  
+    <p> <strong> Durée (en minutes) : </strong>
+    {% if film.duree is not null %} {{ film.duree }} {% endif %} </p>
+
+    <p> <strong> Casting : </strong>
+    {% if film.casting is not null %} {{ film.casting }} {% endif %} </p>
+
+    <p> <strong> Signalétique jeunesse : </strong> 
+    {% if film.sj is not null %} {{ film.sj }} {% endif %} </p>
+
+    <p> <strong> Synopsis : </strong>
+    {% if film.synopsis is not null %} {{ film.synopsis }} {% endif %} </p>
+
+    <p> <strong> Note de l'admin : </strong>
+    {% if film.noteAdmin is not null %} {{ film.noteAdmin }} /20 {% endif %} </p>
+
+    <p> <strong> Note moyenne des utilisateurs : </strong>
+    </p>
+
+    <p> <strong> Critiques des utilisateurs : </strong>
+    </p>
+
+    <p> <strong> Disponible sur : </strong>
+    {% if film.dispo is not null %} {{ film.dispo }} {% endif %} </p>
+
+    <p> <strong> Bande-annonce : </strong>
+    {% if film.bandeAnnonce is not null %} {{ film.bandeAnnonce }} {% endif %} </p>
+
+    <p> <strong> OST : </strong>
+    {% if film.ost is not null %} {{ film.ost }} {% endif %} </p>
+
+    <p> <strong> Affiche : </strong>
+    {% if film.affiche is not null %} {{ film.affiche }} {% endif %} </p>
+
+    <p> <strong> Si vous avez aimé ce film, vous pourriez aimer : </strong>
+    {% if film.suggestion is not null %} {{ film.suggestion }} {% endif %} </p> -->
+
+
+    {% if is_granted("ROLE_USER") %}
+        <a class="btn btn-success" href={{ path('note_film', {id:film.id}) }} > Noter ce film </a>
+    {% else %}
+        <p> Veuillez-vous <a href={{ path('app_login') }} > connecter </a> 
+        ou vous <a href={{ path('register_utilisateur') }} > enregistrer </a>
+        pour noter et/ou laisser un avis sur ce film. </p>
+    {% endif %}
+
+
+{% endblock %}

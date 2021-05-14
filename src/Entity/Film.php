@@ -6,6 +6,7 @@ use App\Repository\FilmRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=FilmRepository::class)
@@ -36,6 +37,7 @@ class Film
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Assert\Range(min=0, max=999, notInRangeMessage = "La durée doit être comprise entre 0 et 999 minutes.")
      */
     private $duree;
 
@@ -50,10 +52,6 @@ class Film
      */
     private $casting;
 
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $sj;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -104,6 +102,11 @@ class Film
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $affiche;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=SJ::class, inversedBy="films")
+     */
+    private $sj;
 
 
     public function __construct()
@@ -204,18 +207,6 @@ class Film
         return $this;
     }
 
-    public function getSj(): ?string
-    {
-        return $this->sj;
-    }
-
-    public function setSj(?string $sj): self
-    {
-        $this->sj = $sj;
-
-        return $this;
-    }
-
     public function getSynopsis(): ?string
     {
         return $this->synopsis;
@@ -282,7 +273,7 @@ class Film
     {
         if (!$this->avisUtilisateur->contains($avisUtilisateur)) {
             $this->avisUtilisateur[] = $avisUtilisateur;
-            $avisUtilisateur->setAvis($this);
+            $avisUtilisateur->setFilm($this);
         }
 
         return $this;
@@ -292,8 +283,8 @@ class Film
     {
         if ($this->avisUtilisateur->removeElement($avisUtilisateur)) {
             // set the owning side to null (unless already changed)
-            if ($avisUtilisateur->getAvis() === $this) {
-                $avisUtilisateur->setAvis(null);
+            if ($avisUtilisateur->getFilm() === $this) {
+                $avisUtilisateur->setFilm(null);
             }
         }
 
@@ -395,6 +386,18 @@ class Film
     public function setAffiche(?string $affiche): self
     {
         $this->affiche = $affiche;
+
+        return $this;
+    }
+
+    public function getSj(): ?SJ
+    {
+        return $this->sj;
+    }
+
+    public function setSj(?SJ $sj): self
+    {
+        $this->sj = $sj;
 
         return $this;
     }

@@ -34,6 +34,7 @@
     </div>
         <div class="container-fluid p-0">
 
+<<<<<<< HEAD
         <nav class="nav bg-secondary d-flex justify-content-around py-3">
         <a class="nav-link text-warning" href="#">FILMS</a>
         <a class="nav-link text-warning" href="#">REALISATEURS</a>
@@ -41,6 +42,44 @@
         <a class="nav-link text-warning" href="#">TOP DE LA REDAC'</a>
         <a class="nav-link text-warning" href="#">CONNEXION</a>
         </nav>
+=======
+                    <li class="nav-item">
+                        <a class="nav-link" href= {{ path('list_film') }} > LES FILMS </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href= {{ path('list_realisateur') }} > LES RÉALISATEURS </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href= {{ path('list_genre') }} > LES GENRES </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" {# {{ path('list_bientot') }} #} > BIENTÔT À L'AFFICHE </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" {# {{ path('list_top') }} #} > LES TOPS DE LA RÉDACTION </a>
+                    </li>
+
+                    <li class="nav-item">
+                        {% if is_granted("ROLE_USER") %}
+                            <a class="nav-link" href= {{ path('app_logout') }}  > Logout </a>
+                        {% else %}
+                            <a class="nav-link" href= {{ path('app_login') }}  > Login </a>
+                        {% endif %}
+                    </li>
+
+                    <li class="nav-item">
+                        {% if is_granted("ROLE_ADMIN") %}
+                            <a class="nav-link" href= {{ path('register_admin') }}  > Admin </a>
+                        {% endif %}
+                    </li>
+        
+                </ul>
+            </nav>
+>>>>>>> 6b5a4645400ed1efef2f603d6999c5620b725ac3
         </div>
 </div>
     

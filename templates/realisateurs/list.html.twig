@@ -3,12 +3,17 @@
 {% block title %}Réalisateurs{% endblock %}
 
 {% block body %}
-<h1>Liste des réalisateurs</h1>
-<table class="table" id="author_table">
+
+<br>
+<h1 class="text-center"> Liste des réalisateurs </h1>
+<br>
+
+<table class="table" id="realisateur_table">
     <thead>
         <th>Nom</th>
         <th>Prénom</th>
         <th>Détails</th>
+        <th>Gestion</th>
     </thead>
     <tbody>
         {% for realisateur in realisateurList %}
@@ -16,11 +21,17 @@
             <td>{{ realisateur.prenom }}</td>
             <td>{{ realisateur.nom }}</td>
             <td>
-                <a href={{ path('detail_realisateur', {id:realisateur.id})}} class="btn btn-primary">Voir plus</a></li>
+                <a href={{ path('detail_realisateur', {id:realisateur.id}) }} class="btn btn-primary">Voir plus</a>
+            </td>
+            <td>
+                <a href={{ path('update_realisateur', {id:realisateur.id}) }}
+                    class="btn btn-warning ml-4 mr-4">Modifier</a>
+                <a href={{ path('delete_realisateur', {id:realisateur.id}) }} class="btn btn-danger mr-4">Supprimer</a>
             </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
 
+<a href={{ path('create_realisateur') }} class="btn btn-primary ml-4 mr-4">Ajouter un nouveau réalisateur</a>
 {% endblock %}
