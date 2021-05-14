@@ -20,9 +20,13 @@
     {# boucle for sur tout ce qui a une liste #}
     <p> <strong> Genre : </strong>
     {% if film.genre is not null %} 
-    {% for genre in film.genre %}
-        <a href={ path('detail_film', {id: film.id}) }> {{ film.genre }} </a>
+        <ul>
+            {% for genre in film.genre %}
+            <li>
+                <a href= { path('detail_film', {id: film.id}) } > {{ film.genre }} </a>
+            </li>        
     {% endfor %}
+        </ul>
     {% endif %} </p> 
 
     
