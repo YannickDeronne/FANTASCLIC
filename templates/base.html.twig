@@ -45,9 +45,9 @@
                     <a class="nav-link text-warning" href="#"> TOP DE LA RÉDAC'</a>
 
                     {% if is_granted("ROLE_USER") %}
-                    <a class="nav-link" href={{ path('app_logout') }}>SE DECONNECTER</a>
+                    <a class="nav-link text-warning" href={{ path('app_logout') }}>SE DECONNECTER</a>
                     {% else %}
-                    <a class="nav-link" href={{ path('app_login') }}>CONNEXION</a>
+                    <a class="nav-link text-warning" href={{ path('app_login') }}>CONNEXION</a>
                     {% endif %}
                     {% if is_granted("ROLE_ADMIN") %}
                     <a href={{ path('register_admin')}} class="nav-link">Nouveau compte admin</a>
@@ -55,8 +55,13 @@
                 </nav>
             </div>
         </div>
-
+        {% if app.user %}
+        <div class="mb-3">
+            Vous êtes connecté(e) en tant que {{ app.user.username }}
+        </div>
+        {% endif %}
         <div class="container d-flex justify-content-center mt-5">
+
             <a href="#"> <img class="m-3 rounded-lg" src={{ asset('img/Jaws.jpg') }} alt=""> </a>
             <a href="#"> <img class="m-3 rounded-lg" src={{ asset('img/heredite.jpg') }} alt=""> </a>
             <a href="#"> <img class="m-3 rounded-lg" src={{ asset('img/Shining.jpg') }} alt=""> </a>
