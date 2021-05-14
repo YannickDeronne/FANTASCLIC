@@ -23,11 +23,12 @@ class RealisateurType extends AbstractType
             ->add('anneeNaissance', IntegerType::class, [
                 'label' => 'Année de naissance',
                 'required' => false,
-                'attr' => ['min' => 3],
+                'attr' => ['min' => 1800],
             ])
             ->add('anneeDeces', IntegerType::class, [
                 'label' => 'Année de décès',
                 'required' => false,
+                'attr' => ['min' => 1895]
             ])
             ->add('description', TextareaType::class, [
                 'label' => 'Déscription',
