@@ -8,13 +8,13 @@
         <title> {% block title %} Fantasclic {% endblock %} </title>
 
         {% block stylesheets %}
-            <link rel="stylesheet" type="text/css" href={{ asset('css/bootstrap.css')}} />
-            <link rel="stylesheet" type="text/css" href={{ asset('css/style.css')}} />
-            <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" />
+            <link rel="stylesheet" type="text/css" href= {{ asset('css/bootstrap.css') }} />
+            <link rel="stylesheet" type="text/css" href= {{ asset('css/style.css') }} />
+            <link rel="stylesheet" type="text/css" href= "//cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" />
         {% endblock %}
 
         {% block javascripts %}
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"> </script>
             <script type="application/javascript" src="//cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"> </script>
         {% endblock %}
 
@@ -24,71 +24,37 @@
     <body class="bg-secondary">
 
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-2">
-
-        <img class="w-75 h-100" src={{ asset('img/logoProjet.jpg')}} alt=""></div>
-
-        <div class="col-sm-10" style="background-image: url({{ asset('img/banniereProjetCopie.jpg')}}); background-size: cover; opacity:0.7">  
-    </div>
-        <div class="container-fluid p-0">
-
-<<<<<<< HEAD
-        <nav class="nav bg-secondary d-flex justify-content-around py-3">
-        <a class="nav-link text-warning" href="#">FILMS</a>
-        <a class="nav-link text-warning" href="#">REALISATEURS</a>
-        <a class="nav-link text-warning" href="#">BIENTOT A L'AFFICHE</a>
-        <a class="nav-link text-warning" href="#">TOP DE LA REDAC'</a>
-        <a class="nav-link text-warning" href="#">CONNEXION</a>
-        </nav>
-=======
-                    <li class="nav-item">
-                        <a class="nav-link" href= {{ path('list_film') }} > LES FILMS </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href= {{ path('list_realisateur') }} > LES RÉALISATEURS </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href= {{ path('list_genre') }} > LES GENRES </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" {# {{ path('list_bientot') }} #} > BIENTÔT À L'AFFICHE </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" {# {{ path('list_top') }} #} > LES TOPS DE LA RÉDACTION </a>
-                    </li>
-
-                    <li class="nav-item">
-                        {% if is_granted("ROLE_USER") %}
-                            <a class="nav-link" href= {{ path('app_logout') }}  > Logout </a>
-                        {% else %}
-                            <a class="nav-link" href= {{ path('app_login') }}  > Login </a>
-                        {% endif %}
-                    </li>
-
-                    <li class="nav-item">
-                        {% if is_granted("ROLE_ADMIN") %}
-                            <a class="nav-link" href= {{ path('register_admin') }}  > Admin </a>
-                        {% endif %}
-                    </li>
-        
-                </ul>
-            </nav>
->>>>>>> 6b5a4645400ed1efef2f603d6999c5620b725ac3
-        </div>
-</div>
+        <div class="container-fluid">
     
-    <div class="d-flex justify-content-center mt-5">
-        <a href="#"><img class="m-3 rounded-lg" src={{ asset('img/Jaws.jpg')}} alt=""></a>
-        <a href="#"><img class="m-3 rounded-lg" src={{ asset('img/heredite.jpg')}} alt=""></a>
-        <a href="#"><img class="m-3 rounded-lg" src={{ asset('img/Shining.jpg')}} alt=""></a>
-        <a href="#"><img class="m-3 rounded-lg" src={{ asset('img/Scream.jpg')}} alt=""></a>
-    </div>
+            <div class="row">
+        
+                <div class="col-sm-2">
+                    <img class="w-75 h-100" src= {{ asset('img/logoProjet.jpg') }} alt="">
+                </div>
+
+                <div class="col-sm-10" style="background-image: url('img/banniereProjetCopie.jpg'); background-size: cover; opacity:0.7">  
+                </div>
+                
+                <div class="container-fluid p-0">
+                    <nav class="nav bg-secondary d-flex justify-content-around py-3">
+                        <a class="nav-link text-warning" href= {{ path('list_film') }} > FILMS </a>
+                        <a class="nav-link text-warning" href= {{ path('list_realisateur') }} > RÉALISATEURS </a>
+                        <a class="nav-link text-warning" href= {{ path('list_genre') }}>  GENRES </a>
+                        <a class="nav-link text-warning" href="#"> BIENTÔT À L'AFFICHE </a>
+                        <a class="nav-link text-warning" href="#"> TOP DE LA RÉDAC'</a>
+                        <a class="nav-link text-warning" href="#"> CONNEXION </a>
+                    </nav>
+                </div>
+            </div>
+    
+            <div class="container d-flex justify-content-center mt-5">
+                <a href="#"> <img class="m-3 rounded-lg" src= {{ asset('img/Jaws.jpg') }} alt=""> </a>
+                <a href="#"> <img class="m-3 rounded-lg" src= {{ asset('img/heredite.jpg') }} alt=""> </a>
+                <a href="#"> <img class="m-3 rounded-lg" src= {{ asset('img/Shining.jpg') }} alt=""> </a>
+                <a href="#"> <img class="m-3 rounded-lg" src= {{ asset('img/Scream.jpg') }} alt=""> </a>
+            </div>
+
+        </div>
 
         {% block body %}
         {% endblock %}
