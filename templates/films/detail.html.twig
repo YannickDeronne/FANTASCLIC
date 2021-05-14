@@ -17,7 +17,13 @@
         {{ film.realisateur.nom }} </h4>
     <br>
     <p> <strong> Genre : </strong>
-    {% if film.genre is not null %} {{ film.genre }} {% endif %}</p>
+    {% if film.genre is not null %} {{ film.genre }} {% endif %}</p> {# boucle for sur tout ce qui a une liste #}
+
+    {% for film in realisateur.films %}
+<ul>
+    <li><a href={ path('detail_film', {id: film.id}) }>{{ film.titre }}</a></li>
+</ul>
+{% endfor %}
 
     <p> <strong> Durée (en minutes) : </strong>
     {% if film.duree is not null %} {{ film.duree }} {% endif %} </p>

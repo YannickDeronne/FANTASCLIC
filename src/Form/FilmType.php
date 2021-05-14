@@ -48,8 +48,7 @@ class FilmType extends AbstractType {
             ->add('sj', EntityType::class, ['label' => 'Signalétique jeunesse',
                                                         'required' => false,
                                                         'class' => SJ::class,
-                                                        'choice_label' => 'sj',
-                                                        'expanded' => true])
+                                                        'choice_label' => 'sj'])
 
             ->add('synopsis', TextareaType::class, ['label' => 'Synopsis',
                                                     'required' => false,
