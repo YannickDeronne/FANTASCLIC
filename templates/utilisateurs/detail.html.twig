@@ -1,7 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} Espace personnel {% endblock %}
+{% block title %}Espace personnel{% endblock %}
 
 {% block body %}
+<h1>Espace personnel de {{ app.user.pseudo }}{{ app.user.avatar }}</h1>
+
+
+<img class="m-3 rounded-lg" src="{{ asset('public/uploads/avatars/' ~ app.user.avatar) }}" alt="">
+<img src="../../public/uploads/avatars/businesswoman-60a04f6244007.jpg" alt="">
+<h4>Votre adresse mail: {{ app.user.email }}</h4>
+<h4>Votre année de naissance : {{ app.user.anneeNaissance }}</h4>
 
 {% endblock %}

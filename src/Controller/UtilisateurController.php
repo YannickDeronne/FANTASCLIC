@@ -82,6 +82,14 @@ class UtilisateurController extends AbstractController
     }
 
     /**
+     * @Route("/utilisateurs", name="detail_utilisateur")
+     */
+    public function utilisateur()
+    {
+        return $this->render('utilisateurs/detail.html.twig');
+    }
+
+    /**
      * @Route("/admin/register", name="register_admin")
      */
     public function registerAdmin(Request $request)
