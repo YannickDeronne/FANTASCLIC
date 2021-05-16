@@ -23,7 +23,7 @@ class UtilisateurType extends AbstractType
 
         $builder
             ->add('pseudo', TextType::class, ['label' => 'Pseudo'])
-            ->add('email', EmailType::class, ['label' => 'Adresse e-mail'])
+            ->add('email', EmailType::class, ['label' => 'Adresse mail'])
             ->add('anneenaissance', IntegerType::class, ['label' => 'Année de naissance'])
             ->add('avatar', FileType::class, [
                 'label' => 'Avatar (fichier PNG ou JPEG)',

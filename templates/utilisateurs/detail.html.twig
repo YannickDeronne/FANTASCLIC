@@ -3,12 +3,36 @@
 {% block title %}Espace personnel{% endblock %}
 
 {% block body %}
-<h1>Espace personnel de {{ app.user.pseudo }}{{ app.user.avatar }}</h1>
+<h1>Espace personnel</h1>
+
+<img class=" my-4 d-block" src="{{ asset('uploads/avatars/' ~ app.user.avatar) }}" alt="image avatar"
+    style="width: 200px; height: 200px; border-radius: 50%;">
+
+<!-- info personnelles -->
+<div class="my-4 container mx-auto ">
+    <div class="row">
+        <div class="col-md-3">Votre pseudo : </div>
+        <div class="col-md-4">{{ app.user.pseudo }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Votre adresse mail : </div>
+        <div class="col-md-4">{{ app.user.email }}</div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">Votre année de naissance : </div>
+        <div class="col-md-4">{{ app.user.anneeNaissance }}</div>
+    </div>
+    <div class="row my-4">
+        <div class="col-md-3"><a href={{ path('update_utilisateur') }} class="btn btn-warning">Modifier
+                votre
+                profile</a></div>
+        <div class="col-md-3"><a href=# class="btn btn-danger mr-4">Supprimer votre compte</a></div>
+    </div>
+</div>
 
 
-<img class="m-3 rounded-lg" src="{{ asset('public/uploads/avatars/' ~ app.user.avatar) }}" alt="">
-<img src="../../public/uploads/avatars/businesswoman-60a04f6244007.jpg" alt="">
-<h4>Votre adresse mail: {{ app.user.email }}</h4>
-<h4>Votre année de naissance : {{ app.user.anneeNaissance }}</h4>
+
+<!-- liens gestion -->
+
 
 {% endblock %}

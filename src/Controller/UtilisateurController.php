@@ -68,8 +68,6 @@ class UtilisateurController extends AbstractController
                     throw new HttpException(404);
                 }
 
-                // updates the 'brochureFilename' property to store the PDF file name
-                // instead of its contents
                 $utilisateur->setAvatar($newFilename);
 
                 $this->manager->persist($utilisateur);
@@ -111,4 +109,26 @@ class UtilisateurController extends AbstractController
         return $this->render('utilisateurs/create_utilisateur.html.twig', ['form' => $form->createView()]);
     }
 
+    /**
+     * @Route("/utilisateurs/update/", name="update_utilisateur")
+     */
+    public function updateUtilisateur(Request $request)
+    {
+        $utilisateur = $this->getUser();
+        if ($utilisateur == null) {
+            throw new HttpException(404);
+        }
+
+        $avatarImage = $this->getUser()->getAvatar();
+
+        $form = $this->createForm(utilisateurType::class, $utilisateur);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->manager->persist($utilisateur);
+            $this->manager->flush();
+            return $this->redirectToRoute('detail_utilisateur');
+        }
+
+        return $this->render('utilisateurs/update.html.twig', ['form' => $form->createView(), 'avatar' => $avatarImage]);
+    }
 }
