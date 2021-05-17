@@ -4,5 +4,28 @@
 
 {% block body %}
 <h1> Création de compte </h1>
-{{ form(form) }}
+{{ form_start(form) }}
+<div class="row">
+    <div class="col-6">
+        {{ form_row(form.pseudo) }}
+    </div>
+    <div class="col-6">
+        {{ form_row(form.email) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        {{ form(form.anneeNaissance) }}
+    </div>
+    <div class="col-6">
+        {{ form_row(form.avatar) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+
+    </div>
+</div>
+{{ form_row(form.message) }}
+{{ form_end(form) }}
 {% endblock %}
