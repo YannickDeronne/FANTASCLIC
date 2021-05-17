@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Contact;
 use App\Form\ContactType;
 use App\Repository\ContactRepository;
+use App\Service\SendMailService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,24 +30,35 @@ class ContactController extends AbstractController
     }
 
     /**
-     * @Route("contact", name="contact")
+     * @Route("/contact", name="contact")
      *
      */
-    public function createContact(Request $request)
+    public function contact(Request $request, SendMailService $mail)
     {
-        $contact = new Contact();
+        $form = $this->createForm(ContactType::class);
 
-        $form = $this->createForm(ContactType::class, $contact);
-        $form->handleRequest($request);
+        $contact = $form->handleRequest($request);
 
         // message flash 'votre message a été bien envoyé'
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->manager->persist($contact);
-            $this->manager->flush();
+            $context = [
+                'mail' => $contact->get('email')->getData(),
+                'subject' => $contact->get('subject')->getData(),
+                'message' => $contact->get('message')->getData(),
+            ];
+            $mail->send(
+                $contact->get('email')->getData(),
+                'shojiayane@gmail.com',
+                'Message depuis le formulaire',
+                'email',
+                $context
+            );
+
+            //$this->addFlash('message', 'Votre message a été bien envoyé');
             return $this->redirectToRoute('accueil');
         }
 
-        return $this->render('contact.html.twig', ['form' => $form->createView()]);
+        return $this->render('emails/contact.html.twig', ['form' => $form->createView()]);
     }
 
 }

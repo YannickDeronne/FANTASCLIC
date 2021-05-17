@@ -23,14 +23,7 @@ class Contact
      * @Assert\NotBlank()
      * @Assert\Length(min=1, max=255)
      */
-    private $firstName;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank()
-     * @Assert\Length(min=1, max=255)
-     */
-    private $lastName;
+    private $name;
 
     /**
      * @ORM\Column(type="string", length=10, nullable=true)
@@ -41,6 +34,13 @@ class Contact
      * )
      */
     private $phone;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
+     * @Assert\Length(min=1, max=255)
+     */
+    private $subject;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -66,26 +66,14 @@ class Contact
         return $this->id;
     }
 
-    public function getFirstName(): ?string
+    public function getName(): ?string
     {
-        return $this->firstName;
+        return $this->name;
     }
 
-    public function setFirstName(string $firstName): self
+    public function setName(string $name): self
     {
-        $this->firstName = $firstName;
-
-        return $this;
-    }
-
-    public function getLastName(): ?string
-    {
-        return $this->lastName;
-    }
-
-    public function setLastName(string $lastName): self
-    {
-        $this->lastName = $lastName;
+        $this->name = $name;
 
         return $this;
     }
@@ -110,6 +98,18 @@ class Contact
     public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function getsubject(): ?string
+    {
+        return $this->subject;
+    }
+
+    public function setsubject(string $subject): self
+    {
+        $this->subject = $subject;
 
         return $this;
     }
