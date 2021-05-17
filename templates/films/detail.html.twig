@@ -59,10 +59,28 @@
     {% if film.dispo is not null %} {{ film.dispo }} {% endif %} </p>
 
     <p> <strong> Bande-annonce : </strong>
-    {% if film.bandeAnnonce is not null %} {{ film.bandeAnnonce }} {% endif %} </p>
+    <br>
+        {% if film.bandeAnnonce is not null %} 
+            <iframe width="560" height="315"
+            src= {{ film.bandeAnnonce }}
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            </iframe>
+        {% endif %}
+    </p>
 
     <p> <strong> OST : </strong>
-    {% if film.ost is not null %} {{ film.ost }} {% endif %} </p>
+    <br>
+        {% if film.ost is not null %}
+            <iframe width="560" height="315"
+                src= {{ film.ost }}
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            </iframe>
+        {% endif %} 
+    </p>
 
     <p> <strong> Affiche : </strong>
     {% if film.affiche is not null %} {{ film.affiche }} {% endif %} </p>
@@ -86,5 +104,9 @@
         ou vous <a href={{ path('register_utilisateur') }} > enregistrer </a>
         pour noter et/ou laisser un avis sur ce film. </p>
     {% endif %}
+
+    {# {% if is_granted('ROLE_ADMIN') %}  #}
+    <a class="btn btn-warning" href={{ path('update_film', {id:film.id}) }}> Modifier ce film </a> 
+    {# {% endif %} #}
     
 {% endblock %}

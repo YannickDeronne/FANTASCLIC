@@ -44,6 +44,19 @@ class FilmController extends AbstractController {
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
+
+            // faire une fonction if pour empêcher un bug si on retourne plusieurs fois dans "modifier film"
+            $explode = explode ("=", $film->getBandeAnnonce());
+            $youtubeIdBA = $explode[1];
+            $youtubeLinkBA = "https://www.youtube.com/embed/" . $youtubeIdBA;
+            $film->setBandeAnnonce($youtubeLinkBA);
+
+            // re faire un autre explode après le "&" (et une fonction "if")
+            // $explode = explode ("=", $film->getOst());
+            // $youtubeIdOst = $explode[1];
+            // $youtubeLinkOst = "https://www.youtube.com/embed/" . $youtubeIdOst;
+            // $film->setOst($youtubeLinkOst);
+
             $this->manager->persist($film);
             $this->manager->flush();
             return $this->redirectToRoute('list_film');
@@ -92,6 +105,19 @@ class FilmController extends AbstractController {
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            // faire une fonction if pour empêcher un bug si on retourne plusieurs fois dans "modifier film"
+            $explode = explode ("=", $film->getBandeAnnonce());
+            $youtubeIdBA = $explode[1];
+            $youtubeLinkBA = "https://www.youtube.com/embed/" . $youtubeIdBA;
+            $film->setBandeAnnonce($youtubeLinkBA);
+
+            // re faire un autre explode après le "&" (et une fonction "if")
+            // $explode = explode ("=", $film->getOst());
+            // $youtubeIdOst = $explode[1];
+            // $youtubeLinkOst = "https://www.youtube.com/embed/" . $youtubeIdOst;
+            // $film->setOst($youtubeLinkOst);
+
             $this->manager->persist($film);
             $this->manager->flush();
             return $this->redirectToRoute('list_film');
