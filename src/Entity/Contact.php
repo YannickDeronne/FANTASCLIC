@@ -26,18 +26,7 @@ class Contact
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=10, nullable=true)
-     * @Assert\Regex(
-     *  pattern="/[0-9]{10}/",
-     *  match=false,
-     *  message="Veuillez saisir un numéro de téléphone en 10 chiffres"
-     * )
-     */
-    private $phone;
-
-    /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank()
      * @Assert\Length(min=1, max=255)
      */
     private $subject;
@@ -74,18 +63,6 @@ class Contact
     public function setName(string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getPhone(): ?string
-    {
-        return $this->phone;
-    }
-
-    public function setPhone(?string $phone): self
-    {
-        $this->phone = $phone;
 
         return $this;
     }

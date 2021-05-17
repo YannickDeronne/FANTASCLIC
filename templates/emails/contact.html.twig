@@ -5,5 +5,22 @@
 {% block body %}
 <h1>Nous contacter</h1>
 <p>* champs obligatoire</p>
-{{ form(form) }}
+{{ form_start(form) }}
+<div class="row">
+    <div class="col-6">
+        {{ form_row(form.name) }}
+    </div>
+    <div class="col-6">
+        {{ form_row(form.email) }}
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        {{ form_row(form.subject) }}
+    </div>
+</div>
+{{ form_row(form.message) }}
+{{ form_end(form) }}
+</div>
+
 {% endblock %}
