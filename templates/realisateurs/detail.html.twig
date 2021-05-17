@@ -1,17 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Réalisateur {{ realisateur.prenom }} {{ realisateur.nom }}{% endblock %}
+{% block title %} Réalisateur {{ realisateur.prenom }} {{ realisateur.nom }}{% endblock %}
 
 {% block body %}
 <h1>Liste des films de {{ realisateur.prenom }} {{ realisateur.nom }}</h1>
 <h4>Année de naissance :
     {% if realisateur.anneeNaissance is not null %}
-    {{ realisateur.anneeNaissance }}
+        {{ realisateur.anneeNaissance }}
     {% endif %}
 </h4>
 <h4>Année de décès :
     {% if realisateur.anneeDeces is not null %}
-    {{ realisateur.anneeDeces }}
+        {{ realisateur.anneeDeces }}
     {% endif %}
 </h4>
 <h4>Présentation :</h4>
@@ -20,7 +20,7 @@
 <p>Liste des films :</p>
 {% for film in realisateur.films %}
 <ul>
-    <li><a href={ path('detail_film', {id: film.id}) }>{{ film.titre }}</a></li>
+    <li> <a href={{ path('detail_film', {id: film.id}) }} > {{ film.titre }} </a> </li>
 </ul>
 {% endfor %}
 
