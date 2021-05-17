@@ -11,7 +11,8 @@
         </div>
     {% endfor %}
 
-    <h2 class="text-center"> {{ film.titre }} ({{ film.annee }}) </h2>
+    <h2 class="text-center"> {{ film.titre }} 
+        {% if film.annee is not null %} ({{ film.annee }}) {% endif %} </h2>
     <h4 class="text-center"> de 
         {% if film.realisateur.prenom is not null %} {{ film.realisateur.prenom }} {% endif %} 
         {{ film.realisateur.nom }} </h4>
@@ -19,14 +20,15 @@
 
     {# boucle for sur tout ce qui a une liste #}
     <p> <strong> Genre : </strong>
-    {% if film.genre is not null %} 
-    {% for genre in film.genre %}
-        <a href={ path('detail_film', {id: film.id}) }> {{ film.genre }} </a>
-    {% endfor %}
-    {% endif %} </p> 
+        {% if film.genre is not null %} 
+            <ul>
+                {% for genre in film.genre %}
+                    <li> {{ genre.nom }} </li>        
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </p> 
 
-    
-<!--  
     <p> <strong> Durée (en minutes) : </strong>
     {% if film.duree is not null %} {{ film.duree }} {% endif %} </p>
 
@@ -34,7 +36,7 @@
     {% if film.casting is not null %} {{ film.casting }} {% endif %} </p>
 
     <p> <strong> Signalétique jeunesse : </strong> 
-    {% if film.sj is not null %} {{ film.sj }} {% endif %} </p>
+    {% if film.sj is not null %} {{ film.sj.sj }} {% endif %} </p>
 
     <p> <strong> Synopsis : </strong>
     {% if film.synopsis is not null %} {{ film.synopsis }} {% endif %} </p>
@@ -43,10 +45,15 @@
     {% if film.noteAdmin is not null %} {{ film.noteAdmin }} /20 {% endif %} </p>
 
     <p> <strong> Note moyenne des utilisateurs : </strong>
-    </p>
+    {# {% if commentaire.noteUtilisateur is not null %} {{ commentaire.noteUtilisateur }} /20 {% endif %} </p> #}
+    {# faire une note moyenne #}
+    {# <a class="btn btn-warning" href={{ path= ('list_note') }}> Voir les notes </a> #}
+    <a class="btn btn-warning"> Voir les notes </a>
 
     <p> <strong> Critiques des utilisateurs : </strong>
-    </p>
+    {# {% if commentaire.avisUtilisateur is not null %} {{ commentaire.avisUtilisateur }} /20 {% endif %} </p> #}
+    {# <a class="btn btn-info" href={{ path= ('list_avis') }}> Voir les avis </a> #}
+    <a class="btn btn-info"> Voir les critiques </a>
 
     <p> <strong> Disponible sur : </strong>
     {% if film.dispo is not null %} {{ film.dispo }} {% endif %} </p>
@@ -61,8 +68,16 @@
     {% if film.affiche is not null %} {{ film.affiche }} {% endif %} </p>
 
     <p> <strong> Si vous avez aimé ce film, vous pourriez aimer : </strong>
-    {% if film.suggestion is not null %} {{ film.suggestion }} {% endif %} </p> -->
-
+        {% if film.suggestion is not null %} 
+            <ul>
+                {% for suggestion in film.suggestion %}
+                    <li>
+                        <a href= {{ path('detail_film', {id: suggestion.id}) }} > {{ suggestion.titre }} </a>
+                    </li>        
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </p>
 
     {% if is_granted("ROLE_USER") %}
         <a class="btn btn-success" href={{ path('note_film', {id:film.id}) }} > Noter ce film </a>
@@ -71,6 +86,5 @@
         ou vous <a href={{ path('register_utilisateur') }} > enregistrer </a>
         pour noter et/ou laisser un avis sur ce film. </p>
     {% endif %}
-
-
+    
 {% endblock %}
