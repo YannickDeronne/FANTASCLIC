@@ -20,7 +20,7 @@
 <p>Liste des films :</p>
 {% for film in realisateur.films %}
 <ul>
-    <li><a href={ path('detail_film', {id: film.id}) }>{{ film.titre }}</a></li>
+    <li><a href={{ path('detail_film', {id: film.id}) }}>{{ film.titre }}</a></li>
 </ul>
 {% endfor %}
 
