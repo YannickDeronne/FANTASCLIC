@@ -76,14 +76,16 @@
         </div>
     </nav>
 
-    {% block body %}
-    {% endblock %}
+    <div class="container">
+        {% block body %}
+        {% endblock %}
+    </div>
 
     <footer class="bg-dark">
 
         <div class="d-flex justify-content-around">
 
-            <a class="text-danger" href="#">Contact</a>
+            <a class="text-danger" href={{ path('contact') }}>Contact</a>
             <a class="text-danger" href="#">Qui sommes-nous ?</a>
 
         </div>
