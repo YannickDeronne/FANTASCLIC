@@ -136,24 +136,47 @@ class UtilisateurController extends AbstractController
     /**
      * @Route("/utilisateurs/update_avatar/", name="update_avatar")
      */
-    public function updateAvatar(Request $request)
+    public function updateAvatar(Request $request, SluggerInterface $slugger)
     {
         $utilisateur = $this->getUser();
         if ($utilisateur == null) {
             throw new HttpException(404);
         }
 
-        $avatarImage = $this->getUser()->getAvatar();
-
-        $form = $this->createForm(AvatarType::class, $utilisateur);
+        $form = $this->createForm(AvatarType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->manager->persist($utilisateur);
-            $this->manager->flush();
-            return $this->redirectToRoute('detail_utilisateur');
+
+            // Upload file
+            /**
+             * @var UploadedFile $avatarImage
+             */
+            $avatarImage = $form->get('avatar')->getData();
+
+            if ($avatarImage) {
+                $originalFilename = pathinfo($avatarImage->getClientOriginalName(), PATHINFO_FILENAME);
+                // this is needed to safely include the file name as part of the URL
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $avatarImage->guessExtension();
+
+                try {
+                    $avatarImage->move(
+                        $this->getParameter('avatars_directory'),
+                        $newFilename
+                    );
+                } catch (FileException $e) {
+                    throw new HttpException(404);
+                }
+
+                $utilisateur->setAvatar($newFilename);
+
+                $this->manager->persist($utilisateur);
+                $this->manager->flush();
+                return $this->redirectToRoute('detail_utilisateur');
+            }
         }
 
-        return $this->render('utilisateurs/updateAvatar.html.twig', ['form' => $form->createView(), 'avatar' => $avatarImage]);
+        return $this->render('utilisateurs/updateAvatar.html.twig', ['form' => $form->createView()]);
     }
 
     /**
@@ -169,6 +192,9 @@ class UtilisateurController extends AbstractController
         $form = $this->createForm(PasswordUpdateType::class, $utilisateur);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $encodedPassword = $this->encoder->encodePassword($utilisateur, $utilisateur->getPassword());
+            $utilisateur->setPassword($encodedPassword);
+
             $this->manager->persist($utilisateur);
             $this->manager->flush();
             return $this->redirectToRoute('detail_utilisateur');
