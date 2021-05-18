@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 class FilmType extends AbstractType
@@ -63,10 +64,10 @@ class FilmType extends AbstractType
             ->add('dispo', TextType::class, ['label' => 'Disponible sur',
                 'required' => false])
 
-            ->add('bandeannonce', TextType::class, ['label' => 'Bande-annonce',
+            ->add('bandeannonce', UrlType::class, ['label' => 'Bande-annonce',
                 'required' => false])
 
-            ->add('ost', TextType::class, ['label' => 'OST',
+            ->add('ost', UrlType::class, ['label' => 'OST',
                 'required' => false])
 
             ->add('affiche', TextType::class, ['label' => 'Affiche',
