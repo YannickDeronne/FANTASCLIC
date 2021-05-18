@@ -5,108 +5,105 @@
 
 {% block body %}
 
-    {% for message in app.flashes('notif') %}
-        <div class="alert alert-success">
-            {{ message }}
-        </div>
-    {% endfor %}
+{% for message in app.flashes('notif') %}
+<div class="alert alert-success">
+    {{ message }}
+</div>
+{% endfor %}
 
-    <h2 class="text-center"> {{ film.titre }} 
-        {% if film.annee is not null %} ({{ film.annee }}) {% endif %} </h2>
-    <h4 class="text-center"> de 
-        {% if film.realisateur.prenom is not null %} {{ film.realisateur.prenom }} {% endif %} 
-        {{ film.realisateur.nom }} </h4>
-    <br>
+<h2 class="text-center"> {{ film.titre }}
+    {% if film.annee is not null %} ({{ film.annee }}) {% endif %} </h2>
+<h4 class="text-center"> de
+    {% if film.realisateur.prenom is not null %} {{ film.realisateur.prenom }} {% endif %}
+    {{ film.realisateur.nom }} </h4>
+<br>
 
-    {# boucle for sur tout ce qui a une liste #}
-    <p> <strong> Genre : </strong>
-        {% if film.genre is not null %} 
-            <ul>
-                {% for genre in film.genre %}
-                    <li> {{ genre.nom }} </li>        
-                {% endfor %}
-            </ul>
-        {% endif %}
-    </p> 
+{# boucle for sur tout ce qui a une liste #}
+<p> <strong> Genre : </strong>
+    {% if film.genre is not null %}
+    <ul>
+        {% for genre in film.genre %}
+        <li> {{ genre.nom }} </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</p>
 
-    <p> <strong> Durée (en minutes) : </strong>
+<p> <strong> Durée (en minutes) : </strong>
     {% if film.duree is not null %} {{ film.duree }} {% endif %} </p>
 
-    <p> <strong> Casting : </strong>
+<p> <strong> Casting : </strong>
     {% if film.casting is not null %} {{ film.casting }} {% endif %} </p>
 
-    <p> <strong> Signalétique jeunesse : </strong> 
+<p> <strong> Signalétique jeunesse : </strong>
     {% if film.sj is not null %} {{ film.sj.sj }} {% endif %} </p>
 
-    <p> <strong> Synopsis : </strong>
+<p> <strong> Synopsis : </strong>
     {% if film.synopsis is not null %} {{ film.synopsis }} {% endif %} </p>
 
-    <p> <strong> Note de l'admin : </strong>
+<p> <strong> Note de l'admin : </strong>
     {% if film.noteAdmin is not null %} {{ film.noteAdmin }} /20 {% endif %} </p>
 
-    <p> <strong> Note moyenne des utilisateurs : </strong>
+<p> <strong> Note moyenne des utilisateurs : </strong>
     {# {% if commentaire.noteUtilisateur is not null %} {{ commentaire.noteUtilisateur }} /20 {% endif %} </p> #}
     {# faire une note moyenne #}
     {# <a class="btn btn-warning" href={{ path= ('list_note') }}> Voir les notes </a> #}
     <a class="btn btn-warning"> Voir les notes </a>
 
     <p> <strong> Critiques des utilisateurs : </strong>
-    {# {% if commentaire.avisUtilisateur is not null %} {{ commentaire.avisUtilisateur }} /20 {% endif %} </p> #}
-    {# <a class="btn btn-info" href={{ path= ('list_avis') }}> Voir les avis </a> #}
-    <a class="btn btn-info"> Voir les critiques </a>
+        {# {% if commentaire.avisUtilisateur is not null %} {{ commentaire.avisUtilisateur }} /20 {% endif %} </p> #}
+        {# <a class="btn btn-info" href={{ path= ('list_avis') }}> Voir les avis </a> #}
+        <a class="btn btn-info"> Voir les critiques </a>
 
-    <p> <strong> Disponible sur : </strong>
-    {% if film.dispo is not null %} {{ film.dispo }} {% endif %} </p>
+        <p> <strong> Disponible sur : </strong>
+            {% if film.dispo is not null %} {{ film.dispo }} {% endif %} </p>
 
-    <p> <strong> Bande-annonce : </strong>
-    <br>
-        {% if film.bandeAnnonce is not null %} 
-            <iframe width="560" height="315"
-            src= {{ film.bandeAnnonce }}
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        <p> <strong> Bande-annonce : </strong>
+            <br>
+            {% if film.bandeAnnonce is not null %}
+            <iframe width="560" height="315" src={{ film.bandeAnnonce }} title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
             </iframe>
-        {% endif %}
-    </p>
+            {% endif %}
+        </p>
 
-    <p> <strong> OST : </strong>
-    <br>
-        {% if film.ost is not null %}
-            <iframe width="560" height="315"
-                src= {{ film.ost }}
-                title="YouTube video player"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        <p> <strong> OST : </strong>
+            <br>
+            {% if film.ost is not null %}
+            <iframe width="560" height="315" src={{ film.ost }} title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
             </iframe>
-        {% endif %} 
-    </p>
+            {% endif %}
+        </p>
 
-    <p> <strong> Affiche : </strong>
-    {% if film.affiche is not null %} {{ film.affiche }} {% endif %} </p>
+        <p> <strong> Affiche : </strong>
+            {% if film.affiche is not null %} {{ film.affiche }} {% endif %} </p>
 
-    <p> <strong> Si vous avez aimé ce film, vous pourriez aimer : </strong>
-        {% if film.suggestion is not null %} 
+        <p> <strong> Si vous avez aimé ce film, vous pourriez aimer : </strong>
+            {% if film.suggestion is not null %}
             <ul>
                 {% for suggestion in film.suggestion %}
-                    <li>
-                        <a href= {{ path('detail_film', {id: suggestion.id}) }} > {{ suggestion.titre }} </a>
-                    </li>        
+                <li>
+                    <a href={{ path('detail_film', {id: suggestion.id}) }}> {{ suggestion.titre }} </a>
+                </li>
                 {% endfor %}
             </ul>
+            {% endif %}
+        </p>
+
+        {% if is_granted("ROLE_USER") %}
+        <!-- Decommenter quand note film est créé -->
+        {#<a class="btn btn-success" href={{ path('note_film', {id:film.id}) }} >#} Noter ce film </a>
+        {% else %}
+        <p> Veuillez-vous <a href={{ path('app_login') }}> connecter </a>
+            ou vous <a href={{ path('register_utilisateur') }}> enregistrer </a>
+            pour noter et/ou laisser un avis sur ce film. </p>
         {% endif %}
-    </p>
 
-    {% if is_granted("ROLE_USER") %}
-        <a class="btn btn-success" href={{ path('note_film', {id:film.id}) }} > Noter ce film </a>
-    {% else %}
-        <p> Veuillez-vous <a href={{ path('app_login') }} > connecter </a> 
-        ou vous <a href={{ path('register_utilisateur') }} > enregistrer </a>
-        pour noter et/ou laisser un avis sur ce film. </p>
-    {% endif %}
+        {# {% if is_granted('ROLE_ADMIN') %}  #}
+        <a class="btn btn-warning" href={{ path('update_film', {id:film.id}) }}> Modifier ce film </a>
+        {# {% endif %} #}
 
-    {# {% if is_granted('ROLE_ADMIN') %}  #}
-    <a class="btn btn-warning" href={{ path('update_film', {id:film.id}) }}> Modifier ce film </a> 
-    {# {% endif %} #}
-    
-{% endblock %}
+        {% endblock %}
