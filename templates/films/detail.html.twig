@@ -69,16 +69,14 @@
 
         <p> <strong> OST : </strong> <br>
             {% if film.ost is not null %} 
-                {# <iframe width="560" height="315" src={{ film.ost }} title="YouTube video player" frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-                </iframe> #}
                 <a class=text-warning target="_blank" href= {{ film.ost }} > {{ film.ost }} </a>
             {% endif %}
         </p>
 
         <p> <strong> Affiche : </strong> <br>
-            {% if film.affiche is not null %} {{ film.affiche }} {% endif %} </p>
+            {% if film.affiche is not null %}
+                <img src="{{ asset('img/affiches/' ~ film.affiche) }}" alt="affiche">
+            {% endif %} </p> 
 
         <p> <strong> Si vous avez aimé ce film, vous pourriez aimer : </strong>
             {% if film.suggestion is not null %}

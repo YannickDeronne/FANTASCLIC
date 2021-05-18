@@ -8,12 +8,14 @@ use App\Entity\Realisateur;
 use App\Entity\SJ;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\File;
 
 class FilmType extends AbstractType
 {
@@ -59,7 +61,7 @@ class FilmType extends AbstractType
 
             ->add('noteadmin', IntegerType::class, ['label' => 'Note admin',
                 'required' => false,
-                'attr' => ['min' => 0]])
+                'attr' => ['min' => 0, 'max' => 20]])
 
             ->add('dispo', TextType::class, ['label' => 'Disponible sur',
                 'required' => false])
@@ -72,6 +74,13 @@ class FilmType extends AbstractType
 
             ->add('affiche', TextType::class, ['label' => 'Affiche',
                 'required' => false])
+
+            ->add('affiche', FileType::class, ['label' => 'Affiche (fichier JPEG)',
+                                                'mapped' => false,
+                                                'required' => false,
+                                                'constraints' => [new File(['maxSize' => '1024k',
+                                                                        'mimeTypes' => ['image/jpeg'],
+                                'mimeTypesMessage' => 'Veuillez choisir une image valide en format JPEG'])]])
 
             ->add('suggestion', EntityType::class, ['label' => 'Vous avez aimé ce film, vous pourriez aimer',
                 'required' => false,
