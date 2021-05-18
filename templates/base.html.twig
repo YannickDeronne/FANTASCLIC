@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href={{ asset('css/bootstrap.css')}} />
     <link rel="stylesheet" type="text/css" href={{ asset('css/style.css')}} />
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     {% endblock %}
 
     {% block javascripts %}
@@ -25,22 +26,22 @@
 
 <body class="bg-secondary" style="font-family: 'Pangolin', cursive;">
 
-    <header
-        style="background-image: url('img/banniereProjetCopie.jpg'); background-size: cover; opacity:0.8; height:25rem; position:relative">
+  <header class="position-relative">
+    <div>
+      <img src="img/banniereProjetCopie.jpg" class="img-fluid w-100" alt="..." style="height:25rem">
+    </div>
 
-        <div class="container-fluid p-0"
-            style="width:100%; height:400px; position:absolute; background:rgba(0,0,0,0.5); backdrop-filter:blur(1px)">
+    <div class="container-fluid p-0" style="width:100%; height:400px; position:absolute; background:rgba(0,0,0,0); backdrop-filter:blur(1px); top:0">
 
-            <div style="text-align:center; margin-top:4rem">
-                <img src={{ asset('img/logoFantasclic.jpg')}} alt="">
-            </div>
-
+        <div style="text-align:center; margin-top:4rem">
+            <img src={{ asset('img/logoFantasclic.jpg')}} alt="">
         </div>
 
+    </div>
 
-    </header>
+  </header>
 
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar navbar-expand-lg navbar-light" style="font-size:1.5rem">
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,6 +52,7 @@
 
             <div class="navbar-nav mx-auto">
 
+                <a class="nav-link text-danger mr-5 text-uppercase" href="#"><i class="fas fa-home"></i> Accueil </a>
                 <a class="nav-link text-danger mr-5 text-uppercase" href={{ path('list_film') }}> films </a>
                 <a class="nav-link text-danger mr-5 text-uppercase" href={{ path('list_realisateur') }}> réalisateurs
                 </a>
@@ -80,8 +82,8 @@
 
         <div class="d-flex justify-content-around">
 
-            <a class="text-danger" href="#">Contact</a>
-            <a class="text-danger" href="#">Qui sommes-nous ?</a>
+            <a class="text-danger p-5" href="#">Contact</a>
+            <a class="text-danger p-5" href="#">Qui sommes-nous ?</a>
 
         </div>
 
