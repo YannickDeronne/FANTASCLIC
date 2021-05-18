@@ -80,6 +80,6 @@ class FilmType extends AbstractType
                 'multiple' => true,
                 'expanded' => true])
 
-            ->add('save', SubmitType::class, ['label' => 'Enregistrer']);
+            ->add('save', SubmitType::class, ['label' => 'ENREGISTRER CE FILM']);
     }
 }

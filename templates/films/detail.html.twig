@@ -18,7 +18,7 @@
     {{ film.realisateur.nom }} </h4>
 <br>
 
-{# boucle for sur tout ce qui a une liste #}
+
 <p> <strong> Genre : </strong>
     {% if film.genre is not null %}
     <ul>
@@ -32,13 +32,13 @@
 <p> <strong> Durée (en minutes) : </strong>
     {% if film.duree is not null %} {{ film.duree }} {% endif %} </p>
 
-<p> <strong> Casting : </strong>
+<p> <strong> Casting : </strong> <br>
     {% if film.casting is not null %} {{ film.casting }} {% endif %} </p>
 
 <p> <strong> Signalétique jeunesse : </strong>
     {% if film.sj is not null %} {{ film.sj.sj }} {% endif %} </p>
 
-<p> <strong> Synopsis : </strong>
+<p> <strong> Synopsis : </strong> <br>
     {% if film.synopsis is not null %} {{ film.synopsis }} {% endif %} </p>
 
 <p> <strong> Note de l'admin : </strong>
@@ -58,27 +58,26 @@
         <p> <strong> Disponible sur : </strong>
             {% if film.dispo is not null %} {{ film.dispo }} {% endif %} </p>
 
-        <p> <strong> Bande-annonce : </strong>
-            <br>
+        <p> <strong> Bande-annonce : </strong> <br>
             {% if film.bandeAnnonce is not null %}
-            <iframe width="560" height="315" src={{ film.bandeAnnonce }} title="YouTube video player" frameborder="0"
+                <iframe width="560" height="315" src={{ film.bandeAnnonce }} title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
-            </iframe>
+                </iframe>
             {% endif %}
         </p>
 
-        <p> <strong> OST : </strong>
-            <br>
-            {% if film.ost is not null %}
-            <iframe width="560" height="315" src={{ film.ost }} title="YouTube video player" frameborder="0"
+        <p> <strong> OST : </strong> <br>
+            {% if film.ost is not null %} 
+                {# <iframe width="560" height="315" src={{ film.ost }} title="YouTube video player" frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen>
-            </iframe>
+                </iframe> #}
+                <a class=text-warning target="_blank" href= {{ film.ost }} > {{ film.ost }} </a>
             {% endif %}
         </p>
 
-        <p> <strong> Affiche : </strong>
+        <p> <strong> Affiche : </strong> <br>
             {% if film.affiche is not null %} {{ film.affiche }} {% endif %} </p>
 
         <p> <strong> Si vous avez aimé ce film, vous pourriez aimer : </strong>
@@ -102,8 +101,18 @@
             pour noter et/ou laisser un avis sur ce film. </p>
         {% endif %}
 
+        <br>
         {# {% if is_granted('ROLE_ADMIN') %}  #}
-        <a class="btn btn-warning" href={{ path('update_film', {id:film.id}) }}> Modifier ce film </a>
+        <a class="btn-block btn-lg btn-warning text-center" href={{ path('update_film', {id:film.id}) }}> MODIFIER </a>
         {# {% endif %} #}
+
+        <br> <br>
+        {# {% if is_granted('ROLE_ADMIN') %}  #}
+        <a class="btn-block btn-lg btn-danger text-center" href={{ path('delete_film', {id:film.id}) }}> SUPPRIMER </a> 
+        {# {% endif %} #}
+
+        <br> <br>
+        <a class="btn-block btn-lg btn-info text-center" href={{ path('list_film', {id:film.id}) }}> RETOUR SUR LA LISTE DES FILMS </a>
+        <br> <br> <br>
 
         {% endblock %}

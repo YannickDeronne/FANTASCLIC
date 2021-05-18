@@ -45,11 +45,12 @@ class FilmController extends AbstractController {
 
         if($form->isSubmitted() && $form->isValid()) {
 
-            // faire une fonction if pour empêcher un bug si on retourne plusieurs fois dans "modifier film"
-            $explode = explode ("=", $film->getBandeAnnonce());
-            $youtubeIdBA = $explode[1];
-            $youtubeLinkBA = "https://www.youtube.com/embed/" . $youtubeIdBA;
-            $film->setBandeAnnonce($youtubeLinkBA);
+            if (str_contains('watch?v=', $film->getBandeAnnonce())) {
+                $explode = explode ("=", $film->getBandeAnnonce());
+                $youtubeIdBA = $explode[1];
+                $youtubeLinkBA = "https://www.youtube.com/embed/" . $youtubeIdBA;
+                $film->setBandeAnnonce($youtubeLinkBA);
+            }
 
             // re faire un autre explode après le "&" (et une fonction "if")
             // $explode = explode ("=", $film->getOst());
@@ -106,11 +107,12 @@ class FilmController extends AbstractController {
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            // faire une fonction if pour empêcher un bug si on retourne plusieurs fois dans "modifier film"
-            $explode = explode ("=", $film->getBandeAnnonce());
-            $youtubeIdBA = $explode[1];
-            $youtubeLinkBA = "https://www.youtube.com/embed/" . $youtubeIdBA;
-            $film->setBandeAnnonce($youtubeLinkBA);
+            if (str_contains('watch?v=', $film->getBandeAnnonce())) {
+                $explode = explode ("=", $film->getBandeAnnonce());
+                $youtubeIdBA = $explode[1];
+                $youtubeLinkBA = "https://www.youtube.com/embed/" . $youtubeIdBA;
+                $film->setBandeAnnonce($youtubeLinkBA);
+            }
 
             // re faire un autre explode après le "&" (et une fonction "if")
             // $explode = explode ("=", $film->getOst());
