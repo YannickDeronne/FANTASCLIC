@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UtilisateurRepository::class)
@@ -22,6 +23,8 @@ class Utilisateur implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Length(max=180)
      */
     private $email;
 
@@ -33,21 +36,31 @@ class Utilisateur implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\Length(min=8)
+     * @Assert\NotBlank()
      */
     private $password;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Length(
+     *      min = 4,
+     *      max = 4,
+     *      minMessage = "Veillez saisir l'année de naissance en 4 chiffres",
+     *      maxMessage = "Veillez saisir l'année de naissance en 4 chiffres")
      */
     private $anneeNaissance;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Assert\Length(max=255)
      */
     private $avatar;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(max=255)
+     * @Assert\NotBlank()
      */
     private $pseudo;
 
