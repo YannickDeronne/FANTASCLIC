@@ -1,27 +1,90 @@
-"5","John ","Carpenter",NULL,NULL,NULL
-"6","David ","Cronenberg",NULL,NULL,NULL
-"7","Stanley","Kubrick",NULL,NULL,NULL
-"8","Sean","Byrne",NULL,NULL,NULL
-"9","Ridley","Scott",NULL,NULL,NULL
-"10","Adam","Wingard",NULL,NULL,NULL
-"11","David Robert","Mitchell",NULL,NULL,NULL
-"12","Wolf","Rilla",NULL,NULL,NULL
-"13","Tommy Lee","Wallace",NULL,NULL,NULL
-"14","Anthony C.","Ferrante",NULL,NULL,NULL
-"15","Tobe","Hooper",NULL,NULL,NULL
-"16","James","DeMonaco",NULL,NULL,NULL
-"17","Ari","Aster",NULL,NULL,NULL
-"18","Wes","Craven",NULL,NULL,NULL
-"19","Steven","Spielberg",NULL,NULL,NULL
-"20","Hideo","Nakata",NULL,NULL,NULL
-"21","Jaume","Balaguero",NULL,NULL,NULL
-"22","Gonzalo","Lopez-Gallego",NULL,NULL,NULL
-"23","Graeme","Manson",NULL,NULL,NULL
-"24","Mathieu","Turi",NULL,NULL,NULL
-"25","Alfonso","Cuaron",NULL,NULL,NULL
-"26","Juli","Ducournau",NULL,NULL,NULL
-"27","Alfred","Hitchcock",NULL,NULL,NULL
-"28","Gaspar","Noë",NULL,NULL,NULL
-"29","Quentin","Dupieux",NULL,NULL,NULL
-"30","Eli","Craig",NULL,NULL,NULL
-"31","Kinji","Fukasaku",NULL,NULL,NULL
+"id","prenom","nom","annee_naissance","annee_deces","description"
+"5","John","Carpenter","1948",NULL,"John Carpenter est un réalisateur, scénariste, producteur et compositeur américain né le 16 janvier 1948 à Carthage, dans l'État de New York.
+
+Fort d'une carrière cinématographique s'étalant sur près de quarante ans, Carpenter a réalisé nombre de films d'horreur et de science-fiction qui ont acquis, au fil des ans, une renommée internationale. Réalisateur indépendant, il met en scène son premier long-métrage, Dark Star, en 1974, alors qu’il n'a que 25 ans. Il signe deux ans plus tard un film d'action, Assaut, avant de se tourner vers un autre registre avec Halloween, la nuit des masques : l'horreur. Un genre qui deviendra vite son genre de prédilection. Sorti en 1978, Halloween rencontre un formidable succès, aussi bien critique que commercial. Dès lors, la carrière de Carpenter est lancée, et les productions se succèdent, Hollywood lui ouvrant par ailleurs ses portes grâce à son nouveau statut de "" réalisateur rentable "".
+
+Fortement influencé par le cinéma des années 1950, notamment par Howard Hawks et les films de science-fiction, John Carpenter est un réalisateur qui cherche à être "" invisible "". Ses films se caractérisent ainsi par une réalisation et des scénarios dépouillés, des montages secs et sans artifices, une musique minimaliste. Metteur en scène polyvalent, Carpenter a d'ailleurs cumulé les fonctions les plus importantes sur la plupart d’entre eux : réalisateur, scénariste, compositeur. Au fil de sa carrière, il a progressivement imposé son style dans les registres de l’épouvante et de la science-fiction, au point d’être considéré comme le "" Maître de l'Horreur "".
+
+Aujourd'hui, nombre de ses films sont devenus des références du cinéma d'horreur et de science-fiction, notamment New York 1997, The Thing, Invasion Los Angeles, L'Antre de la folie ou encore Halloween. Si tous n'ont pas reçu un accueil critique favorable au moment de leur sortie, un grand nombre sont désormais considérés comme des films culte, Carpenter étant lui-même reconnu comme l’un des metteurs en scène les plus talentueux et les plus influents de son époque."
+"6","David","Cronenberg","1943",NULL,"David Cronenberg est un réalisateur, acteur, producteur et scénariste canadien, né le 15 mars 1943 à Toronto (Ontario, Canada). Il est le père du réalisateur Brandon Cronenberg.
+
+Également acteur, Cronenberg n'hésite pas à jouer dans certains films quand on fait appel à lui. Ainsi, on le voit apparaître dans son propre film La Mouche, mais aussi entre autres dans Cabal (Nightbreed de Clive Barker), Prête à tout, Mesure d'urgence et plus récemment Jason X. Par ailleurs et par pur intérêt pour la série, il fait une apparition remarquée dans deux épisodes de la saison 3 d’Alias. On peut aussi entendre sa voix dans Crash, où il interprète un vendeur de voitures accidentées n'apparaissant pas à l'écran."
+"7","Stanley","Kubrick","1928","1999","Stanley Kubrick est un réalisateur, photographe, scénariste et producteur américain, né le 26 juillet 1928 à Manhattan (New York) et mort le 7 mars 1999 dans son manoir de Childwickbury, entre St Albans et Harpenden (Hertfordshire, au nord de Londres).
+
+Après des débuts dans la photographie, Kubrick, autodidacte, sera également son propre directeur de la photographie, producteur, scénariste et monteur. Ses treize longs métrages en quarante-six ans de carrière l'imposent comme l'un des cinéastes majeurs du XXe siècle. Quatre de ses films sont classés dans le Top 100 de l'American Film Institute (AFI's 100 Years...100 Movies)."
+"8","Sean","Byrne",NULL,NULL,"Sean Byrne est un réalisateur et scénariste australien."
+"9","Ridley","Scott","1937",NULL,"Sir Ridley Scott, né le 30 novembre 1937 à South Shields, dans le Tyne and Wear, en Angleterre, est un réalisateur et producteur britannico-américain, résidant aux États-Unis.
+
+Il est révélé à la fin des années 1970 et durant les années 1980 par trois blockbusters : Alien, le huitième passager (1979), Blade Runner (1982) et Legend (1985).
+
+Durant les années 1990, ses films connaissent moins de succès. Se détachent en 1992 Thelma et Louise et 1492 : Christophe Colomb.
+
+Mais au début des années 2000, il fait un retour au premier plan remarqué en relançant le péplum avec Gladiator (2000). Il enchaîne ensuite avec des grosses productions : Hannibal (2001), La Chute du faucon noir (2002), Kingdom of Heaven (2005), alternant également avec des films plus modestes : Les Associés (2003) et Une grande année (2006). Il conclut cette décennie en menant trois gros projets avec l'acteur Russell Crowe : American Gangster (2007), Mensonges d'État (2008), Robin des Bois (2010) qui déçoivent commercialement.
+
+Durant les années 2010, il revient avec succès à la science-fiction : Prometheus (2012), Seul sur Mars (2015) et Alien: Covenant (2017).
+
+Ridley Scott est reconnu pour son style visuel très concentré et atmosphérique, qui a inspiré un grand nombre de réalisateurs.
+
+Il a été nommé à trois reprises à l'Oscar du meilleur réalisateur, ainsi qu'aux Golden Globes et BAFTA Awards. En 2003, il est anobli par la reine Élisabeth II pour services rendus aux arts britanniques, et en 2015, il reçoit un doctorat honorifique par le Royal College of Art de Londres.
+
+Il est le frère aîné du réalisateur Tony Scott (1944-2012) avec qui il a fondé la société de production Scott Free Productions en 1995.
+
+Un BAFTA Award a récompensé leur contribution remarquable au septième art.
+
+Il est le père de trois enfants, tous réalisateurs : Jake, Luke et Jordan (également romancière)."
+"10","Adam","Wingard","1982",NULL,"Adam Wingard est un réalisateur, directeur de la photographie, monteur et scénariste, né le 3 décembre 1982 à Oak Ridge dans le Tennessee. Il est en grande partie connu pour Blair Witch (2016) et Death Note (2017)."
+"11","David Robert","Mitchell","1974",NULL,"David Robert Mitchell est un réalisateur et scénariste américain né le 19 octobre 1974 à Clawson, dans le Michigan."
+"12","Wolf","Rilla","1920","2005","Wolf Rilla est un réalisateur britannique d'origine allemande, né le 16 mars 1920 à Berlin et mort le 19 octobre 2005 à Grasse (Alpes-Maritimes). Il est surtout connu pour son film Le Village des damnés.
+
+Il est le fils de l'acteur allemand Walter Rilla et de Teresa Klausner. En 1934, la famille émigre vers la Grande-Bretagne, pour fuir le national-socialisme naissant, Walter Rilla étant d'origine juive.
+
+Après sa scolarité, Rilla travaille à la BBC, où il dirige des émissions de propagande du service en allemand. Au début des années 1950, il travaille comme scénariste et réalisateur pour le cinéma britannique. Contrairement à son père, Wolf Rilla n'est jamais retourné en Allemagne. Il se retira dans le sud de la France où il devint gérant d'un hôtel."
+"13","Tommy Lee","Wallace","1949",NULL,"Tommy Lee Wallace est un réalisateur, monteur, acteur et scénariste américain, né le 6 septembre 1949 à Somerset, dans le Kentucky (États-Unis), qui a notamment travaillé sur les films de John Carpenter. Il est également connu pour avoir réalisé Ça, adaptation télévisée d'un roman de Stephen King."
+"14","Anthony C.","Ferrante",NULL,NULL,"Anthony C. Ferrante est un réalisateur, producteur et scénariste américain. Il est surtout connu pour son travail sur la série de films Sharknado."
+"15","Tobe","Hooper","1943","2017","Tobe Hooper est un réalisateur américain, né à Austin (Texas) le 25 janvier 1943 et mort le 26 août 2017 à Los Angeles (Californie), principalement connu pour ses films d'horreur dont le plus célèbre est Massacre à la tronçonneuse."
+"16","James","DeMonaco","1969",NULL,"James DeMonaco est un réalisateur, scénariste et producteur américain né en 1969 à New York (quartier de Brooklyn)."
+"17","Ari","Aster","1986",NULL,"Ari Aster est un réalisateur et scénariste américain, né le 15 juillet 1986 à New York. Il est principalement connu pour avoir dirigé et écrit les films d'horreur Hérédité (2018) et Midsommar (2019) ainsi que le court métrage The Strange Thing About the Johnsons (2011)."
+"18","Wes","Craven","1939","2015","Wesley Earl Craven, généralement dit Wes Craven, né le 2 août 1939 à Cleveland dans l'Ohio et mort le 30 août 2015 à Los Angeles en Californie, est un réalisateur, scénariste, producteur, occasionnellement écrivain, acteur et monteur de cinéma américain.
+
+Considéré avec John Carpenter comme "" le maître de l'horreur "", il créa de nouveaux genres avec, entre autres, Les Griffes de la nuit et Scream. De plus, avec sa collaboration à titre de réalisateur pour de nombreux épisodes de la série Twilight Zone, diffusée sur la chaîne américaine CBS dans les années 1980, il manie avec le plus grand art ses techniques de réalisations et son esthétisme.
+
+Ses longs métrages ont souvent suscité la polémique pour leur violence, comme avec son premier film La Dernière Maison sur la gauche.
+
+Ses plus grands films à succès sont La colline a des yeux, Les Griffes de la nuit, en créant les personnages mythiques de Freddy Krueger et celui de Ghostface dans la série de films Scream, le plus gros succès du réalisateur. Il changera que très rarement de registre : le drame biographique pour La Musique de mon cœur (1999) et le thriller Red Eye : Sous haute pression (2005)."
+"19","Steven","Spielberg","1946",NULL,"Steven Spielberg est un réalisateur, scénariste et producteur de cinéma américain, né le 18 décembre 1946 à Cincinnati (Ohio).
+
+Issu de la deuxième génération du Nouvel Hollywood dans les années 1970, il réalise le premier blockbuster de l'histoire du cinéma, Les Dents de la mer (1975). Il enchaîne ensuite les succès internationaux : E.T., l'extra-terrestre (1982), la série Indiana Jones (1981-2008), Jurassic Park (1993), La Liste de Schindler (1993), Il faut sauver le soldat Ryan (1998), Ready Player One (2018), tout en développant ses activités de gestionnaire. Fondateur de la société de production Amblin Entertainment et cofondateur du studio DreamWorks SKG, il produit de nombreux films à grand succès (Poltergeist, Gremlins, Retour vers le futur, Qui veut la peau de Roger Rabbit, la trilogie Men in Black ou encore Transformers). Il a également financé et distribué des œuvres plus exigeantes ou moins grand public telles que Lettres d'Iwo Jima de Clint Eastwood, American Beauty de Sam Mendes et Hollywood Ending de Woody Allen.
+
+Surnommé "" The Entertainment King "" ("" le roi du divertissement ""), Steven Spielberg est régulièrement cité comme le meilleur représentant de l'industrie cinématographique hollywoodienne dont il a promu, sur le plan mondial, l'efficacité technique, la science du grand spectacle et le pouvoir illusionniste. L'ensemble de son œuvre présente un style à la fois personnel et accessible, et des thèmes récurrents. S'il a parfois critiqué la systématisation des suites et des sagas cinématographiques dans le cinéma américain, en compagnie de son ami George Lucas, ces deux cinéastes restent considérés par bon nombre de critiques comme les initiateurs de ce système, en raison de leurs nombreux succès.
+
+Il a également créé la fondation Shoah Foundation Institute for Visual History and Education, dont l'objectif est de recueillir les témoignages de tous les survivants de la Shoah et de les diffuser aux plus jeunes, dans le but de participer au devoir de mémoire afin d'éviter un nouveau génocide.
+
+Il est chevalier dans l'ordre de l'Empire britannique (KBE) depuis le 1er janvier 2001, la cérémonie ayant eu lieu le 29 janvier 2001 à l'ambassade du Royaume-Uni à Washington.
+
+Steven Spielberg a reçu deux Oscars du meilleur réalisateur (en 1994 et 1999) et un Oscar du meilleur film (en 1994). Il a par ailleurs présidé le jury du 5e Festival international du film fantastique d'Avoriaz en 1977, et celui du 66e Festival de Cannes en 2013."
+"20","Hideo","Nakata","1961",NULL,"Hideo Nakata est un réalisateur et un scénariste japonais né le 19 juillet 1961 à Okayama (Japon)."
+"21","Jaume","Balagueró","1968",NULL,"Jaume Balagueró est un réalisateur et scénariste espagnol né le 2 novembre 1968 à Lérida, Generalitat de Catalogne, (Espagne)."
+"22","Gonzalo","Lopez-Gallego","1978",NULL,"Gonzalo López-Gallego est un réalisateur de cinéma espagnol né le 17 mars 1978 à Madrid."
+"23","Vincenzo","Natali","1969",NULL,"Vincenzo Natali est un réalisateur, scénariste et producteur canadien, né le 6 janvier 1969 à Détroit, dans l'État du Michigan aux États-Unis.
+
+Il est connu pour avoir réalisé plusieurs films de science-fiction : Cube (1997), Cypher (2002), Nothing (2003), Splice (2009) et Haunter (2013)."
+"24","Mathieu","Turi","1987",NULL,"Mathieu Turi est un réalisateur et scénariste français, né le 17 janvier 1987 à Cannes en Provence-Alpes-Côte d'Azur."
+"25","Alfonso","Cuarón","1961",NULL,"Alfonso Cuarón Orozco est un réalisateur, scénariste et producteur mexicain, né le 28 novembre 1961 à Mexico.
+
+Réalisateur d'Y tu mamá también, Harry Potter et le Prisonnier d'Azkaban, La Petite Princesse et Les Fils de l'homme, Alfonso Cuarón est longtemps considéré comme l'un des cinéastes mexicains les plus prometteurs et doués de sa génération, aux côtés de Guillermo del Toro et Alejandro González Iñárritu qui atteignent également une renommée internationale dans les années 2000. Il est aujourd'hui reconnu comme l'auteur d'une œuvre originale et cohérente, capable de combiner style personnel, intimisme, maestria technique et science du grand spectacle dans des productions pharaoniques. Avec le film catastrophe spatial Gravity qui connaît un succès critique et commercial planétaire en 2013, Cuarón confirme son statut de réalisateur adulé par Hollywood.
+
+Il a été nommé plusieurs fois et récompensé aux Oscars et a remporté à la Mostra de Venise le Prix du meilleur scénario pour le film Y tu mamá también en 2001 et le Lion d'or pour Roma en 2018."
+"26","Julia","Ducournau","1983",NULL,"Julia Ducournau est une réalisatrice et scénariste française née le 18 novembre 1983 à Paris."
+"27","Alfred","Hitchcock","1899","1980","Sir Alfred Hitchcock est un réalisateur, scénariste et producteur de cinéma britannique, naturalisé américain en 1955, né le 13 août 1899 à Leytonstone (Londres) et mort le 29 avril 1980 à Bel Air (Los Angeles).
+
+Plus grand cinéaste selon un classement dressé en 2007 par la critique au Royaume-Uni, The Daily Telegraph écrit : « Hitchcock a fait davantage qu'aucun autre réalisateur pour façonner le cinéma moderne, lequel sans lui serait tout à fait différent. Il possédait un flair pour la narration, en dissimulant avec cruauté (à ses personnages et au spectateur) des informations cruciales et en provoquant comme nul autre les émotions du public.
+
+Au cours de ses quelque soixante années de carrière, il réalise cinquante-trois longs métrages, dont certains comptent, tant par leur succès public que par leur réception et leur postérité critiques, parmi les plus importants du septième art. Ce sont, entre autres, Les 39 Marches, Soupçons, Les Enchaînés, Fenêtre sur cour, Sueurs froides, La Mort aux trousses, Psychose, ou encore Les Oiseaux.
+
+Après des succès dans le cinéma muet et le cinéma sonore naissant, Hitchcock quitte son pays natal et s'installe à Hollywood, juste avant le déclenchement de la Seconde Guerre mondiale. Le 20 avril 1955, il acquiert la citoyenneté américaine mais conserve la citoyenneté britannique, qui lui permettra, au soir de sa vie, d'être anobli et nommé Chevalier Commandeur de l'Ordre de l'Empire britannique (KBE). Doué d'un sens aigu de l'autopromotion, notamment au travers de ses caméos, Hitchcock, interprète de son propre personnage, demeure l'une des personnalités du XXe siècle les plus reconnaissables et les plus connues à travers le monde.
+
+Surnommé "" le Maître du suspense "", il est considéré comme l'un des réalisateurs les plus influents sur le plan stylistique. Pionnier de nombreuses techniques dans le genre cinématographique du thriller, Hitchcock a installé les notions de suspense et de MacGuffin dans l'univers du cinéma. Ses thrillers, caractérisés par une habile combinaison entre tension et humour, déclinent les variations de la figure de l'innocent persécuté à travers des thèmes récurrents : la peur, la culpabilité et la perte d'identité."
+"28","Gaspar","Noé","1963",NULL,"Gaspar Noé, né le 27 décembre 1963 à Buenos Aires en Argentine, est un scénariste, producteur et réalisateur argentin vivant en France depuis l'âge de 12 ans."
+"29","Quentin","Dupieux","1974",NULL,"Quentin Dupieux est un artiste de musique électronique, réalisateur et scénariste français, né le 14 avril 1974 à Paris. Il utilise, pour son œuvre musicale, le pseudonyme de Mr. Oizo."
+"30","Eli","Craig","1972",NULL,"Elijah M. "" Eli "" Craig est un scénariste et réalisateur né le 25 mai 1972 à Los Angeles."
+"31","Kinji","Fukasaku","1930","2003","Kinji Fukasaku, né le 3 juillet 1930 et mort le 12 janvier 2003, est un acteur, scénariste et réalisateur japonais."
