@@ -3,34 +3,45 @@
 {% block title %}Espace personnel{% endblock %}
 
 {% block body %}
-<h1>Espace personnel</h1>
+<div class="mx-auto" style="width: 700px">
+    <h1>Espace personnel</h1>
 
-<img class=" my-4 d-block" src="{{ asset('uploads/avatars/' ~ app.user.avatar) }}" alt="image avatar"
-    style="width: 200px; height: 200px; border-radius: 50%;">
+    <img class="my-4" src="{{ asset('uploads/avatars/' ~ app.user.avatar) }}" alt="image avatar"
+        style="width: 200px; height: 200px; border-radius: 50%;">
+    <a href={{ path('update_avatar') }} class="btn btn-warning ml-5">Modifier votre avatar</a>
 
-<!-- info personnelles -->
-<div class="my-4 container mx-auto ">
-    <div class="row">
-        <div class="col-md-3">Votre pseudo : </div>
-        <div class="col-md-4">{{ app.user.pseudo }}</div>
+    <!-- info personnelles -->
+    <div class="d-flex">
+        <div class="my-4 container col-md-8 col-sm-6">
+            <div class="row">
+                <div class="col-md-6">Votre pseudo : </div>
+                <div class="col-md-6">{{ app.user.pseudo }}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">Votre adresse mail : </div>
+                <div class="col-md-6">{{ app.user.email }}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">Votre année de naissance : </div>
+                <div class="col-md-6">{{ app.user.anneeNaissance }}</div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+            <a href={{ path('update_utilisateur') }} class="btn btn-warning">Modifier votre
+                profil</a>
+        </div>
     </div>
-    <div class="row">
-        <div class="col-md-3">Votre adresse mail : </div>
-        <div class="col-md-4">{{ app.user.email }}</div>
-    </div>
-    <div class="row">
-        <div class="col-md-3">Votre année de naissance : </div>
-        <div class="col-md-4">{{ app.user.anneeNaissance }}</div>
-    </div>
+
     <div class="row my-4">
-        <div class="col-md-3"><a href={{ path('update_utilisateur') }} class="btn btn-warning">Modifier
-                votre
-                profile</a></div>
-        <div class="col-md-3"><a href=# class="btn btn-danger mr-4">Supprimer votre compte</a></div>
+        <div class="col-md-6"><a href={{ path('update_password') }} class="btn btn-danger">Modifier votre mot de
+                passe</a></div>
+        <div class="col-md-6"><a href=# class="btn btn-danger">Supprimer votre compte</a></div>
     </div>
 </div>
+</div>
 
-
+</div>
+</div>
 
 <!-- liens gestion -->
 

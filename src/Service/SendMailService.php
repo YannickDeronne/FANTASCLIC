@@ -3,6 +3,7 @@ namespace App\Service;
 
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Address;
 
 class SendMailService
 {
@@ -23,7 +24,7 @@ class SendMailService
         // On crée le mail
         $email = (new TemplatedEmail())
             ->from($from)
-            ->to($to)
+            ->to(new Address($to))
             ->subject($subject)
             ->htmlTemplate("emails/$template.html.twig")
             ->context($context);

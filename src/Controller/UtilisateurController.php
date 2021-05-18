@@ -3,6 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Utilisateur;
+use App\Form\AvatarType;
+use App\Form\PasswordUpdateType;
+use App\Form\ProfilType;
 use App\Form\UtilisateurType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -119,9 +122,7 @@ class UtilisateurController extends AbstractController
             throw new HttpException(404);
         }
 
-        $avatarImage = $this->getUser()->getAvatar();
-
-        $form = $this->createForm(utilisateurType::class, $utilisateur);
+        $form = $this->createForm(ProfilType::class, $utilisateur);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $this->manager->persist($utilisateur);
@@ -129,6 +130,50 @@ class UtilisateurController extends AbstractController
             return $this->redirectToRoute('detail_utilisateur');
         }
 
-        return $this->render('utilisateurs/update.html.twig', ['form' => $form->createView(), 'avatar' => $avatarImage]);
+        return $this->render('utilisateurs/update.html.twig', ['form' => $form->createView()]);
+    }
+
+    /**
+     * @Route("/utilisateurs/update_avatar/", name="update_avatar")
+     */
+    public function updateAvatar(Request $request)
+    {
+        $utilisateur = $this->getUser();
+        if ($utilisateur == null) {
+            throw new HttpException(404);
+        }
+
+        $avatarImage = $this->getUser()->getAvatar();
+
+        $form = $this->createForm(AvatarType::class, $utilisateur);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->manager->persist($utilisateur);
+            $this->manager->flush();
+            return $this->redirectToRoute('detail_utilisateur');
+        }
+
+        return $this->render('utilisateurs/updateAvatar.html.twig', ['form' => $form->createView(), 'avatar' => $avatarImage]);
+    }
+
+    /**
+     * @Route("/utilisateurs/update_passwprd/", name="update_password")
+     */
+    public function updatePassword(Request $request)
+    {
+        $utilisateur = $this->getUser();
+        if ($utilisateur == null) {
+            throw new HttpException(404);
+        }
+
+        $form = $this->createForm(PasswordUpdateType::class, $utilisateur);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->manager->persist($utilisateur);
+            $this->manager->flush();
+            return $this->redirectToRoute('detail_utilisateur');
+        }
+
+        return $this->render('utilisateurs/updatePassword.html.twig', ['form' => $form->createView()]);
     }
 }

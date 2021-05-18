@@ -41,13 +41,14 @@ class ContactController extends AbstractController
 
         // message flash 'votre message a été bien envoyé'
         if ($form->isSubmitted() && $form->isValid()) {
+            dump($form->get('email'));
             $context = [
-                'mail' => $contact->get('email')->getData(),
-                'subject' => $contact->get('subject')->getData(),
-                'message' => $contact->get('message')->getData(),
+                'mail' => $form->get('email')->getData(),
+                'subject' => $form->get('subject')->getData(),
+                'message' => $form->get('message')->getData(),
             ];
             $mail->send(
-                $contact->get('email')->getData(),
+                $form->get('email')->getData(),
                 'shojiayane@gmail.com',
                 'Message depuis le formulaire',
                 'email',
