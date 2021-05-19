@@ -7,7 +7,8 @@
     <meta charset="UTF-8">
     <title> {% block title %} Fantasclic {% endblock %} </title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Girassol&family=Montserrat:wght@500&display=swap"
+        rel="stylesheet">
     {% block stylesheets %}
     <link rel="stylesheet" type="text/css" href={{ asset('css/bootstrap.css')}} />
     <link rel="stylesheet" type="text/css" href={{ asset('css/style.css')}} />
@@ -108,18 +109,18 @@
     </div>
 
     <!-- footer -->
-    <footer class="py-1 mt-5" style="background-color: #0a0a0a;">
+    <footer class="py-1" style="background-color: #0a0a0a;">
         <div class="container">
             <div class="d-flex justify-content-around py-2">
-                <a style="color: #fff" class="lead" href={{ path('contact') }}>
+                <a style="color: #fff" class="lead footer-text" href={{ path('contact') }}>
                     Contact
                 </a>
-                <a style="color: #fff" class="lead" href={{ path('a_propos') }}>Qui sommes-nous ?</a>
+                <a style="color: #fff" class="lead footer-text" href={{ path('a_propos') }}>Qui sommes-nous ?</a>
             </div>
 
             <!-- Copywrite Text -->
             <div class="copy_right_text text-center py-2">
-                <p style="color: #fff" class="lead">© 2021 Fantasclic All Rights Reserved</p>
+                <p style="color: #fff" class="footer-text">© 2021 Fantasclic All Rights Reserved</p>
             </div>
         </div>
     </footer>
