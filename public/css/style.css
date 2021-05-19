@@ -1,28 +1,30 @@
-.fantasclic {
-    font-weight: bold;
-    color: red;
+/* *********************General********************* */
+.py-base {
+    padding: 3.5rem 0;
 }
 
+
+/* *********************Nav bar********************* */
 .nav-link,
 .footer-text {
     font-family: 'Girassol', cursive;
 }
 
-
-
 .nav-bar-ticket-1 {
     background-image: url('../img/navTicket4-no-bg.png');
     background-size: cover;
     width: 12rem;
-    padding-top: 1.3rem;
+    padding-top: 1.2rem;
 }
-<<<<<<< HEAD
 
-.nav-bar-ticket-2 {
-    background-image: url('../img/navTicket4-no-bg.png');
-    background-size: cover;
-    width: 12rem;
-    padding-top: 0.7rem;
+
+/* *********************Qui sommes-nous ?********************* */
+.fantasclic {
+    font-weight: bold;
+    color: red;
 }
-=======
->>>>>>> be19b93685201e7e0699ae1482f08174e5fab02c
+
+/* *********************Qui sommes-nous ?********************* */
+.admin-menu-btn a {
+    font-size: 0.9rem;
+}

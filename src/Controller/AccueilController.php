@@ -42,7 +42,8 @@ class AccueilController extends AbstractController
     /**
      * @Route("/top", name="top")
      */
-    public function Top() {
+    public function Top()
+    {
         return $this->render("top.html.twig");
     }
 
@@ -52,6 +53,14 @@ class AccueilController extends AbstractController
     public function aPropos()
     {
         return $this->render("apropos.html.twig");
+    }
+
+    /**
+     * @Route("/admin/menu", name="admin_menu")
+     */
+    public function adminPage()
+    {
+        return $this->render("adminMenu.html.twig");
     }
 
 }
