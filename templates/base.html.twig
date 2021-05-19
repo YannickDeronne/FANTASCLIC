@@ -25,7 +25,7 @@
 
 </head>
 
-<body style="font-family: '_TOP_SECRET.otf'; src: url('public/font/_TOP_SECRET_.otf'); background-image:url({{ asset('img/fondShining.jpg')}}); background-size:contain; background-repeat:repeat">
+<body style="font-family: '_TOP_SECRET.otf'; src: url('public/font/_TOP_SECRET_.otf')">
 
     <!-- Header banniere -->
     <header class="position-relative">
@@ -103,11 +103,13 @@
         </div>
     </nav>
 
-    <div class="container">
+{# Wallpaper sang #}
+<div class="wp"  style="background-image:url('{{ asset('img/sangWP.jpg') }}'); background-size:cover">
+    <div class="container"> 
         {% block body %}
         {% endblock %}
     </div>
-
+</div>
     <!-- footer -->
     <footer class="py-1" style="background-color: #0a0a0a;">
         <div class="container">
@@ -123,6 +125,7 @@
                 <p style="color: #fff" class="footer-text">© 2021 Fantasclic All Rights Reserved</p>
             </div>
         </div>
+
     </footer>
 
 
