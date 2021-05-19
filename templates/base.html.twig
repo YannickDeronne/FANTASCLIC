@@ -25,7 +25,8 @@
 
 </head>
 
-<body style="font-family: '_TOP_SECRET.otf'; src: url('public/font/_TOP_SECRET_.otf'); background-image:url({{ asset('img/fondShining.jpg')}}); background-size:contain; background-repeat:repeat">
+<body
+    style="src: url('public/font/_TOP_SECRET_.otf'); background-image:url({{ asset('img/fondShining.jpg')}}); background-size:contain; background-repeat:repeat">
 
     <!-- Header banniere -->
     <header class="position-relative">
@@ -58,20 +59,17 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 
             <div class="navbar-nav mx-auto">
-                <div
-                    style="background-image:url('img/navTicket4-no-bg.png'); background-size:cover; width:12rem; padding-top: 1.2rem;">
+                <div class="nav-bar-ticket-1">
                     <a class="nav-link text-danger strong small font m-2 text-uppercase" style="text-align:center;"
-                        href={{ path('accueil') }}><i class="fas fa-home"></i><br>Accueil</a>
+                        href={{ path('accueil') }}><i class="fas fa-home"></i>Accueil</a>
                 </div>
-                <div
-                    style="background-image:url('img/navTicket4-no-bg.png'); background-size:cover; width:12rem; padding-top: 1.2rem;">
+                <div class="nav-bar-ticket-1">
                     <a class="nav-link text-danger strong small m-2 text-uppercase" style="text-align:center"
                         href={{ path('list_film') }}>films</a>
                 </div>
-                <div
-                    style="background-image:url('img/navTicket4-no-bg.png'); background-size:cover; width:12rem; padding-top: 0.7rem;">
+                <div class="nav-bar-ticket-2">
                     <a class="nav-link text-danger strong small m-1 text-uppercase" style="text-align:center"
-                        href={{ path('top') }} >top de la<br>
+                        href={{ path('top') }}>top de la<br>
                         rédac'</a>
                 </div>
                 <!-- Gestion utilisateur/admin -->
@@ -87,16 +85,14 @@
                     </div>
                 </div>
                 {% else %}
-                <div
-                    style="background-image:url('img/navTicket4-no-bg.png'); background-size:cover; width:12rem; padding-top: 1.5rem; font-size: 1.3rem">
+                <div class="nav-bar-ticket-1">
                     <a class="nav-link text-danger strong small m-2 text-uppercase" style="text-align:center"
                         href={{ path('app_login') }}>Connexion<br></a>
                 </div>
                 {% endif %}
 
-                <div
-                    style="background-image:url('img/navTicket4-no-bg.png'); background-size:cover; width:12rem; padding-top: 0.7rem; font-size: 1.3rem">
-                    <a class="nav-link text-danger strong small m-2 text-uppercase" style="text-align:center"
+                <div class="nav-bar-ticket-2">
+                    <a class=" nav-link text-danger strong small m-1 text-uppercase" style="text-align:center"
                         href={{ path('app_login') }}>Menu<br> admin</a>
                 </div>
             </div>

@@ -1,7 +1,5 @@
-<<<<<<< HEAD
-=======
 .fantasclic {
-    font-weight: bold !important;
+    font-weight: bold;
     color: red;
 }
 
@@ -10,7 +8,18 @@
     font-family: 'Girassol', cursive;
 }
 
-.body {
-    font-family: 'Montserrat' !important;
+
+
+.nav-bar-ticket-1 {
+    background-image: url('../img/navTicket4-no-bg.png');
+    background-size: cover;
+    width: 12rem;
+    padding-top: 1.3rem;
 }
->>>>>>> 8b950d7a736740b345381d260b02f83c66436fb2
+
+.nav-bar-ticket-2 {
+    background-image: url('../img/navTicket4-no-bg.png');
+    background-size: cover;
+    width: 12rem;
+    padding-top: 0.7rem;
+}
