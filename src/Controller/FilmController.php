@@ -39,7 +39,7 @@ class FilmController extends AbstractController {
      */
 
     // @IsGranted("ROLE_ADMIN") ligne 36
-    public function createFilm (Request $request) {
+    public function createFilm (Request $request, SluggerInterface $slugger) {
 
         $film = new Film();
 
@@ -47,14 +47,35 @@ class FilmController extends AbstractController {
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) {
-
-            if (str_contains('watch?v=', $film->getBandeAnnonce())) {
+            if (str_contains($film->getBandeAnnonce(), 'watch?v=')) {
                 $explode = explode ("=", $film->getBandeAnnonce());
                 $youtubeIdBA = $explode[1];
                 $youtubeLinkBA = "https://www.youtube.com/embed/" . $youtubeIdBA;
                 $film->setBandeAnnonce($youtubeLinkBA);
             }
 
+            /**
+             * @var UploadedFile $affiche
+             */
+
+            $affiche = $form->get('affiche')->getData();
+
+            if ($affiche) {
+                $originalFilename = pathinfo($affiche->getClientOriginalName(), PATHINFO_FILENAME);
+                
+                $safeFilename = $slugger->slug($originalFilename);
+                $newFilename = $safeFilename . '-' . uniqid() . '.' . $affiche->guessExtension();
+
+                try {
+                    $affiche->move($this->getParameter('affiches_directory'), $newFilename);
+                } 
+                catch (FileException $e) {
+                    throw new HttpException(404);
+                }
+                
+                $film->setAffiche($newFilename);
+            }
+            dump ($film);
             $this->manager->persist($film);
             $this->manager->flush();
             return $this->redirectToRoute('list_film');
@@ -104,7 +125,7 @@ class FilmController extends AbstractController {
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            if (str_contains('watch?v=', $film->getBandeAnnonce())) {
+            if (str_contains($film->getBandeAnnonce(), 'watch?v=')) {
                 $explode = explode ("=", $film->getBandeAnnonce());
                 $youtubeIdBA = $explode[1];
                 $youtubeLinkBA = "https://www.youtube.com/embed/" . $youtubeIdBA;
