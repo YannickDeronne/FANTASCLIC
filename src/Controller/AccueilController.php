@@ -40,6 +40,13 @@ class AccueilController extends AbstractController
     }
 
     /**
+     * @Route("/top", name="top")
+     */
+    public function Top() {
+        return $this->render("top.html.twig");
+    }
+
+    /**
      * @Route("/a_propos", name="a_propos")
      */
     public function aPropos()
