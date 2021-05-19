@@ -7,12 +7,13 @@
 
 <h1 class="text-center"> Liste des films </h1>
 
-<nav class="navbar navbar-light bg-light">
-    <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-</nav>
+<br> 
+
+{# {% if is_granted('ROLE_ADMIN') %}  #}
+    <a class="btn-block btn-lg btn-success text-center" href={{ path('create_film') }}> AJOUTER UN FILM </a> 
+{# {% endif %} #}
+
+<br>
 
 <ul style="list-style-type: none">
     {% for film in filmList %}
