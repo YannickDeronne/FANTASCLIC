@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Page Administration {% endblock %}
+
+{% block body %}
+<div class="mt-4 mx-auto container" style="max-width: 50rem; background-color: #fff;">
+    <h1>Qui sommes-nous ?</h1>
+    <!-- menu réservé au rôle Admin -->
+    <div>
+        <a class="nav-link  btn btn-primary m-3 text-uppercase" style="text-align:center"
+            href={{ path('list_realisateur') }}>
+            réalisateurs
+        </a>
+    </div>
+    <div>
+        <a class="nav-link text-danger m-3 text-uppercase" style="text-align:center"
+            href={{ path('list_genre') }}>genres</a>
+    </div>
+    {% if is_granted("ROLE_ADMIN") %}
+    <a href={{ path('register_admin')}} class="nav-link">Nouveau compte admin</a>
+    {% endif %}
+
+    <!-- A voir si on garde
+        <div style>
+            <a class="nav-link text-danger m-3 text-uppercase" style="text-align:center" href="#">bientôt à
+                l'affiche</a>
+        </div> -->
+</div>
+{% endblock %}
