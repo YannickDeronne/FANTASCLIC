@@ -1,26 +1,28 @@
-{% extends 'base.html.twig' %}
+{% extends "base.html.twig" %}
 
 {% block title %}Nous contacter{% endblock %}
 
 {% block body %}
-<h1>Nous contacter</h1>
-<p>* champs obligatoire</p>
-{{ form_start(form) }}
-<div class="row">
-    <div class="col-6">
-        {{ form_row(form.name) }}
+<div class="mt-4 mx-auto container" style="max-width: 50rem">
+    <h1>Nous contacter</h1>
+    <p>* champs obligatoires</p>
+    {{ form_start(form) }}
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            {{ form_row(form.name) }}
+        </div>
+        <div class="col-12 col-lg-6">
+            {{ form_row(form.email) }}
+        </div>
     </div>
-    <div class="col-6">
-        {{ form_row(form.email) }}
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            {{ form_row(form.subject) }}
+        </div>
     </div>
+    {{ form_row(form.message) }}
+    {{ form_end(form) }}
 </div>
-<div class="row">
-    <div class="col-6">
-        {{ form_row(form.subject) }}
-    </div>
-</div>
-{{ form_row(form.message) }}
-{{ form_end(form) }}
 </div>
 
 {% endblock %}

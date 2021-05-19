@@ -12,7 +12,9 @@
     <link rel="stylesheet" type="text/css" href={{ asset('css/bootstrap.css')}} />
     <link rel="stylesheet" type="text/css" href={{ asset('css/style.css')}} />
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     {% endblock %}
 
     {% block javascripts %}
@@ -25,18 +27,24 @@
 
 <body class="bg-secondary" style="font-family: '_TOP_SECRET.otf'; src: url('public/font/_TOP_SECRET_.otf')">
 
-  <header class="position-relative">
-    <div>
-      <img src={{ asset('img/header/banniereProjetCopie.jpg') }} class="img-fluid w-100" alt="..." style="height:25rem">
-    </div>
-
-    <div class="container-fluid p-0" style="width:100%; height:400px; position:absolute; background:rgba(0,0,0,0); backdrop-filter:blur(1px); top:0">
-
-        <div style="text-align:center; margin-top:4rem">
-            <img src={{ asset('img/header/logoFantasclic.jpg')}} alt="">
+    <header class="position-relative">
+        <div>
+            <img src={{ asset('img/header/banniereProjetCopie.jpg') }} class="img-fluid w-100" alt="..."
+                style="height:25rem">
         </div>
-        
-  </header>
+
+        <div class="container-fluid p-0"
+            style="width:100%; height:400px; position:absolute; background:rgba(0,0,0,0); backdrop-filter:blur(1px); top:0">
+
+            <div style="text-align:center; margin-top:4rem">
+                <img src={{ asset('img/header/logoFantasclic.jpg')}} alt="">
+            </div>
+
+            {# <div class="container-fluid p-0" style="position:absolute; bottom:0">
+
+        </div> #}
+
+    </header>
 
     <nav class="navbar navbar-expand-lg navbar-light" style="font-size:1.5rem">
 
@@ -49,20 +57,34 @@
 
             <div class="navbar-nav mx-auto">
 
-                <div style="background-image:url('img/navTicket.jpg'); background-size:cover; width:16rem"><a class="nav-link text-danger m-3 text-uppercase" style="text-align:center" href={{ path('accueil') }}> <i class="fas fa-home"></i> Accueil </a></div>
-                <div style="background-image:url('img/navTicket.jpg'); background-size:cover; width:16rem"><a class="nav-link text-danger m-3 text-uppercase" style="text-align:center" href={{ path('list_film') }}> films </a></div>
-                <div style="background-image:url('img/navTicket.jpg'); background-size:cover; width:16rem"><a class="nav-link text-danger m-3 text-uppercase" style="text-align:center" href={{ path('list_realisateur') }}> réalisateurs
-                </a></div>
-                <div style="background-image:url('img/navTicket.jpg'); background-size:cover; width:16rem"><a class="nav-link text-danger m-3 text-uppercase" style="text-align:center" href={{ path('list_genre') }}> genres </a></div>
-                <div style="background-image:url('img/navTicket.jpg'); background-size:cover; width:16rem"><a class="nav-link text-danger m-3 text-uppercase" style="text-align:center" href="#"> bientôt à l'affiche </a></div>
-                <div style="background-image:url('img/navTicket.jpg'); background-size:cover; width:16rem"><a class="nav-link text-danger m-3 text-uppercase" style="text-align:center" href="#"> top de la rédac' </a></div>
+                <div style="background-image:url('img/navTicket.jpg'); background-size:cover; width:16rem"><a
+                        class="nav-link text-danger m-3 text-uppercase" style="text-align:center"
+                        href={{ path('accueil') }}> <i class="fas fa-home"></i> Accueil </a></div>
+                <div style="background-image:url('img/navTicket.jpg'); background-size:cover; width:16rem"><a
+                        class="nav-link text-danger m-3 text-uppercase" style="text-align:center"
+                        href={{ path('list_film') }}> films </a></div>
+                <div style="background-image:url('img/navTicket.jpg'); background-size:cover; width:16rem"><a
+                        class="nav-link text-danger m-3 text-uppercase" style="text-align:center"
+                        href={{ path('list_realisateur') }}> réalisateurs
+                    </a></div>
+                <div style="background-image:url('img/navTicket.jpg'); background-size:cover; width:16rem"><a
+                        class="nav-link text-danger m-3 text-uppercase" style="text-align:center"
+                        href={{ path('list_genre') }}> genres </a></div>
+                <div style="background-image:url('img/navTicket.jpg'); background-size:cover; width:16rem"><a
+                        class="nav-link text-danger m-3 text-uppercase" style="text-align:center" href="#"> bientôt à
+                        l'affiche </a></div>
+                <div style="background-image:url('img/navTicket.jpg'); background-size:cover; width:16rem"><a
+                        class="nav-link text-danger m-3 text-uppercase" style="text-align:center" href="#"> top de la
+                        rédac' </a></div>
 
                 {% if is_granted("ROLE_USER") %}
                 <a class="nav-link text-warning" href={{ path('app_logout') }}>SE DECONNECTER</a>
                 <a class="nav-link text-warning" href={{ path('detail_utilisateur') }}>ESPACE
                     PERSONNEL</a>
                 {% else %}
-                <div style="background-image:url('img/navTicket.jpg'); background-size:cover; width:16rem"><a class="nav-link text-danger m-3 text-uppercase" style="text-align:center" href={{ path('app_login') }}>CONNEXION</a></div>
+                <div style="background-image:url('img/navTicket.jpg'); background-size:cover; width:16rem"><a
+                        class="nav-link text-danger m-3 text-uppercase" style="text-align:center"
+                        href={{ path('app_login') }}>CONNEXION</a></div>
                 {% endif %}
 
                 {% if is_granted("ROLE_ADMIN") %}
@@ -77,15 +99,25 @@
         {% endblock %}
     </div>
 
-    <footer class="bg-dark">
+    <footer class="py-1 mt-5" style="background-color: #0a0a0a;">
 
-        <div class="d-flex justify-content-around">
+        <div class="container">
+            <div class="d-flex justify-content-around py-2">
+                <a style="color: #fff" class="lead" href={{ path('contact') }}>Contact</a>
+                <a style="color: #fff" class="lead" href={{ path('a_propos') }}>Qui sommes-nous ?</a>
+            </div>
 
-            <a class="text-danger" href={{ path('contact') }}>Contact</a>
-            <a class="text-danger" href="#">Qui sommes-nous ?</a>
-
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <!-- Copywrite Text -->
+                        <div class="copy_right_text text-center py-2">
+                            <p style="color: #fff" class="lead">© 2021 Fantasclic All Rights Reserved</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
     </footer>
 
 

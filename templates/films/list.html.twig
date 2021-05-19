@@ -14,39 +14,28 @@
     </form>
 </nav>
 
-<table>
+<ul style="list-style-type: none">>
     {% for film in filmList %}
-    <ul>
-        <li> (emplacement affiche) {{ film.affiche }} 
-            {# {% if is_granted('ROLE_ADMIN') %}  #}
-            <a class="btn btn-info" href={{ path('detail_film', {id:film.id}) }} > En cliquant sur l'affiche, on verra les détails du film </a>
-            {# {% endif %} #}
+        <li>
+            {# si je mets une boucle for, c'est l'affiche d'halloween qui boucle #}
+            <img src="{{ asset('img/affiches/' ~ film.affiche) }}" alt="affiche">
+        </li>
+        <li>
+            <a class="btn btn-info" href={{ path('detail_film', {id:film.id}) }} > Détails </a>
         </li>
         <li>
             {{ film.titre }} 
             {% if film.annee is not null %}
                 ({{ film.annee }})
             {% endif %}
-
-            {#  
-            {% if is_granted('ROLE_ADMIN') %}  
-            <a class="btn btn-warning" href={{ path('update_film', {id:film.id}) }}> Modifier </a> 
-            {% endif %} 
-
-            {% if is_granted('ROLE_ADMIN') %}
-            <a class="btn btn-danger" href={{ path('delete_film', {id:film.id}) }}> Supprimer </a> 
-            {# {% endif %}
-            #}
-        </li>
-    </ul>
-
+        </li> <br> <br>
     {% endfor %}
-</table>
+</ul>
 
 <br> <br>
 
 {# {% if is_granted('ROLE_ADMIN') %}  #}
-<a class="btn-block btn-lg btn-success text-center" href={{ path('create_film') }}> AJOUTER UN FILM </a> 
+    <a class="btn-block btn-lg btn-success text-center" href={{ path('create_film') }}> AJOUTER UN FILM </a> 
 {# {% endif %} #}
 <br> <br>
 

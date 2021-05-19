@@ -42,8 +42,8 @@ class UtilisateurType extends AbstractType
             ])
             ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
-                'first_options' => ['label' => 'Entrez votre mot de passe'],
-                'second_options' => ['label' => 'Confirmez votre mot de passe'],
+                'first_options' => ['label' => 'Entrez votre mot de passe (minimum 8 caractères)'],
+                'second_options' => ['label' => 'Confirmez votre mot de passe (minimum 8 caractères)'],
             ])
             ->add('save', SubmitType::class, ['label' => "S'enregistrer"]);
     }
