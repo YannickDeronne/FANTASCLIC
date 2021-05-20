@@ -11,26 +11,6 @@
 
 <div class="card-deck">
     {% for film in filmList %}
-<<<<<<< HEAD
-    <div class="card-body">
-        <a href={{ path('detail_film', {id:film.id}) }}>
-            <img src="{{ asset('img/affiches/' ~ film.affiche) }}" alt="affiche">
-        </a>
-        <h4 class="card-title text-center">
-            {{ film.titre }}
-            {% if film.annee is not null %}
-            ({{ film.annee }})
-            {% endif %}
-        </h4>
-    </div>
-    {% endfor %}
-</div>
-
-
-{% if is_granted('ROLE_ADMIN') %}
-<a class="btn-block btn-lg btn-success text-center" href={{ path('create_film') }}> AJOUTER UN FILM </a>
-{% endif %}
-=======
         <div class="card-body text-center">
             <a href={{ path('detail_film', {id:film.id}) }} >
                 <img src="{{ asset('img/affiches/' ~ film.affiche) }}" alt="affiche">
@@ -45,7 +25,6 @@
     {% endfor %}
 </div>
 
->>>>>>> 50587452df068c6cd39276b2b7df7c02804ccede
 <br> <br>
 
 {% endblock %}
