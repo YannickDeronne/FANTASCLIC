@@ -11,6 +11,19 @@
 
 <div class="card-deck">
     {% for film in filmList %}
+<<<<<<< HEAD
+        <div class="card-body text-center">
+            <a href={{ path('detail_film', {id:film.id}) }} >
+                <img src="{{ asset('img/affiches/' ~ film.affiche) }}" alt="affiche">
+            </a>
+            <h4 class="card-title text-center">
+                {{ film.titre }} 
+                {% if film.annee is not null %}
+                    ({{ film.annee }})
+                {% endif %}
+            </h4>
+        </div>
+=======
     <div class="card-body text-center">
         <a href={{ path('detail_film', {id:film.id}) }}>
             <img src="{{ asset('img/affiches/' ~ film.affiche) }}" alt="affiche">
@@ -22,6 +35,7 @@
             {% endif %}
         </h4>
     </div>
+>>>>>>> 1d9db1ff78557de8a776c417d2cf892a051ce822
     {% endfor %}
 </div>
 
