@@ -202,4 +202,17 @@ class UtilisateurController extends AbstractController
 
         return $this->render('utilisateurs/updatePassword.html.twig', ['form' => $form->createView()]);
     }
+
+    /**
+     *@Route("utilisateur/delete/{id}", name="delete_utilisateur", requirements={"id"="\d+"})
+     */
+    public function deleteUtilisateur(int $id)
+    {
+        $utilisateur = $this->utilisateurRepository->find($id);
+
+        $this->manager->remove($utilisateur);
+        $this->manager->flush();
+
+        return $this->redirectToRoute('accueil');
+    }
 }
