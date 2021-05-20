@@ -20,7 +20,8 @@
         <label for="inputEmail">Email</label>
         <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control"
             autocomplete="email" required autofocus>
-        <label for="inputPassword">Mot de passe (Minimul 8 caractères)</label>
+            <br>
+        <label for="inputPassword">Mot de passe (Minimum 8 caractères)</label>
         <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password"
             required>
 
@@ -41,8 +42,8 @@
             Se connecter
         </button>
     </form>
-
+<br>
     <p>Vous n'avez pas encore un compte ?
-        <a href={{ path('register_utilisateur') }} class="btn btn-lg btn-primary">Créer un compte</a></p>
+        <a href={{ path('register_utilisateur') }} class="btn btn-lg btn-success">Créer un compte</a></p>
 </div>
 {% endblock %}

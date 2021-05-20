@@ -28,7 +28,8 @@ class FilmType extends AbstractType
 
             ->add('annee', IntegerType::class, ['label' => 'Année',
                 'required' => false,
-                'attr' => ['min' => 1895]])
+                'attr' => ['min' => 1895, 'max' => 2021]])
+                // a modifier selon l'année d'utilisation 
 
             ->add('genre', EntityType::class, ['label' => 'Genre',
                 'required' => false,
