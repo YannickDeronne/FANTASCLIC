@@ -8,7 +8,7 @@
     <!-- menu réservé au rôle Admin -->
     <div class="container">
         <h3>Gestion des films</h3>
-        <div class="admin-menu-btn d-flex">
+        <div class="admin-menu-btn d-flex justify-content-around">
             <a class="btn btn-outline-primary m-3 text-uppercase" style="text-align:center"
                 href={{ path('list_film') }}>Liste
                 des films (modifier/supprimer)</a>
@@ -17,15 +17,15 @@
         </div>
 
         <h3>Gestion des réalisateurs</h3>
-        <div class="admin-menu-btn d-flex">
+        <div class="admin-menu-btn d-flex justify-content-around">
             <a class="btn btn-outline-primary m-3 text-uppercase" style="text-align:center"
-                href={{ path('list_realisateur') }}>Liste des réalisateur (modifier/supprimer)</a>
+                href={{ path('list_realisateur') }}>Liste des réalisateurs (modifier/supprimer)</a>
             <a class="btn btn-outline-primary m-3 text-uppercase" style="text-align:center"
                 href={{ path('create_realisateur') }}>Ajouter un réalisateur</a>
         </div>
 
         <h3>Gestion des genres</h3>
-        <div class="admin-menu-btn d-flex">
+        <div class="admin-menu-btn d-flex justify-content-around">
             <a class="btn btn-outline-primary m-3 text-uppercase" style="text-align:center"
                 href={{ path('list_genre') }}>Liste
                 des genres(modifier/supprimer)</a>

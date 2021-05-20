@@ -3,6 +3,12 @@
 {% block title %} Page d'accueil {% endblock %}
 
 {% block body %}
+<!-- Message flash -->
+{% for message in app.flashes('notif') %}
+<div class="alert alert-success">
+  {{ message }}
+</div>
+{% endfor %}
 
 <div id="carouselExampleCaptions" class="carousel slide w-50" style="margin:auto" data-ride="carousel">
   <ol class="carousel-indicators m-auto">
@@ -15,50 +21,51 @@
       <a href="#"><img src={{ asset('img/affiches/Jaws.jpg')}} class="d-block w-100 m-auto rounded" alt="..."></a>
       <div class="carousel-caption d-none d-md-block">
       </div>
-              <h2 class="my-5 text-center font-weight-bold">Les dents de la mer (1975)</h2>
+      <h2 class="my-5 text-center font-weight-bold">Les dents de la mer (1975)</h2>
     </div>
     <div class="carousel-item mt-5">
       <a href="#"><img src={{ asset('img/affiches/heredite.jpg')}} class="d-block w-100 m-auto rounded" alt="..."></a>
       <div class="carousel-caption d-none d-md-block">
       </div>
-              <h2 class="my-5 text-center font-weight-bold">Hérédité (2018)</h2>
+      <h2 class="my-5 text-center font-weight-bold">Hérédité (2018)</h2>
     </div>
     <div class="carousel-item mt-5">
       <a href="#"><img src={{ asset('img/affiches/Shining.jpg')}} class="d-block w-100 m-auto rounded" alt="..."></a>
       <div class="carousel-caption d-none d-md-block">
-    </div>
-            <h2 class="my-5 text-center font-weight-bold">Shining (1980)</h2>
       </div>
-          <div class="carousel-item mt-5">
+      <h2 class="my-5 text-center font-weight-bold">Shining (1980)</h2>
+    </div>
+    <div class="carousel-item mt-5">
       <a href="#"><img src={{ asset('img/affiches/Alien.jpg')}} class="d-block w-100 m-auto rounded" alt="..."></a>
       <div class="carousel-caption d-none d-md-block">
-    </div>
-            <h2 class="my-5 text-center font-weight-bold">Alien (1979)</h2>
       </div>
-          <div class="carousel-item mt-5">
+      <h2 class="my-5 text-center font-weight-bold">Alien (1979)</h2>
+    </div>
+    <div class="carousel-item mt-5">
       <a href="#"><img src={{ asset('img/affiches/halloween.jpg')}} class="d-block w-100 m-auto rounded" alt="..."></a>
       <div class="carousel-caption d-none d-md-block">
-    </div>
-            <h2 class="my-5 text-center font-weight-bold">Halloween (1978)</h2>
       </div>
-          <div class="carousel-item mt-5">
+      <h2 class="my-5 text-center font-weight-bold">Halloween (1978)</h2>
+    </div>
+    <div class="carousel-item mt-5">
       <a href="#"><img src={{ asset('img/affiches/Psychose.jpg')}} class="d-block w-100 m-auto rounded" alt="..."></a>
       <div class="carousel-caption d-none d-md-block">
-    </div>
-            <h2 class="my-5 text-center font-weight-bold">Psychose (1960)</h2>
       </div>
-          <div class="carousel-item mt-5">
+      <h2 class="my-5 text-center font-weight-bold">Psychose (1960)</h2>
+    </div>
+    <div class="carousel-item mt-5">
       <a href="#"><img src={{ asset('img/affiches/Scream.jpg')}} class="d-block w-100 m-auto rounded" alt="..."></a>
       <div class="carousel-caption d-none d-md-block">
-    </div>
-            <h2 class="my-5 text-center font-weight-bold">Scream (1996)</h2>
       </div>
-          <div class="carousel-item mt-5">
-      <a href="#"><img src={{ asset('img/affiches/villageDamnes.jpg')}} class="d-block w-100 m-auto rounded" alt="..."></a>
+      <h2 class="my-5 text-center font-weight-bold">Scream (1996)</h2>
+    </div>
+    <div class="carousel-item mt-5">
+      <a href="#"><img src={{ asset('img/affiches/villageDamnes.jpg')}} class="d-block w-100 m-auto rounded"
+          alt="..."></a>
       <div class="carousel-caption d-none d-md-block">
-    </div>
-            <h2 class="my-5 text-center font-weight-bold">Le village des damnés (1995)</h2>
       </div>
+      <h2 class="my-5 text-center font-weight-bold">Le village des damnés (1995)</h2>
+    </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
