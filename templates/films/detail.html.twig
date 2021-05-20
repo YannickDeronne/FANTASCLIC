@@ -11,15 +11,24 @@
 </div>
 {% endfor %}
 
-<h2 class="text-center"> {{ film.titre }}
+<h2 class="text-center m-3"> {{ film.titre }}
     {% if film.annee is not null %} ({{ film.annee }}) {% endif %} </h2>
 <h4 class="text-center"> de
     {% if film.realisateur.prenom is not null %} {{ film.realisateur.prenom }} {% endif %}
     {{ film.realisateur.nom }} </h4>
 <br>
 
-
-<p> <strong> Genre : </strong>
+<div class="d-flex justify-content-around">
+<div class="mt-5"> <strong class="text-danger"> Bande-annonce : </strong> <br>
+    {% if film.bandeAnnonce is not null %}
+        <iframe width="700" height="500" src={{ film.bandeAnnonce }} title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+        </iframe>
+    {% endif %}
+</div>
+<div class=" mt-5">
+<p> <strong class="text-danger"> Genre : </strong>
     {% if film.genre is not null %}
     <ul>
         {% for genre in film.genre %}
@@ -29,59 +38,61 @@
     {% endif %}
 </p>
 
-<p> <strong> Durée (en minutes) : </strong>
+<p class="mt-5"> <strong class="text-danger"> Durée (en minutes) : </strong>
     {% if film.duree is not null %} {{ film.duree }} {% endif %} </p>
 
-<p> <strong> Casting : </strong> <br>
-    {% if film.casting is not null %} {{ film.casting }} {% endif %} </p>
-
-<p> <strong> Signalétique jeunesse : </strong>
+        <p class="mt-5"> <strong class="text-danger"> Signalétique jeunesse : </strong>
     {% if film.sj is not null %} {{ film.sj.sj }} {% endif %} </p>
 
-<p> <strong> Synopsis : </strong> <br>
+        <p class="mt-5"> <strong class="text-danger"> Disponible sur : </strong><br>
+    {% if film.dispo is not null %} {{ film.dispo }} {% endif %} </p>
+    
+</div>
+</div>
+
+<div class="d-flex justify-content-around mt-5">
+<p class="mr-5"> <strong class="text-danger"> Affiche : </strong> <br>
+    {% if film.affiche is not null %}
+        <img src="{{ asset('img/affiches/' ~ film.affiche) }}" alt="affiche">
+    {% endif %} </p> 
+
+<div>
+
+
+    <p class="mt-5"> <strong class="text-danger"> Synopsis : </strong> <br>
     {% if film.synopsis is not null %} {{ film.synopsis }} {% endif %} </p>
 
-<p> <strong> Note de l'admin : </strong>
+<p class="mt-5"> <strong class="text-danger"> Casting : </strong> <br>
+    {% if film.casting is not null %} {{ film.casting }} {% endif %} </p>
+</div>
+</div>
+
+<div class="d-flex justify-content-around mt-5">
+<p> <strong class="text-danger"> Note de l'admin : </strong>
     {% if film.noteAdmin is not null %} {{ film.noteAdmin }} /20 {% endif %} </p>
 
-<p> <strong> Note moyenne des utilisateurs : </strong>
+<p> <strong class="text-danger"> Note moyenne des utilisateurs : </strong>
     {#
     {% if commentaire.noteUtilisateur is not null %} {{ commentaire.noteUtilisateur }} /20 {% endif %} </p> 
     <a class="btn btn-warning" href={{ path= ('list_note') }}> Voir les notes </a>
     <a class="btn btn-warning"> Voir les notes </a>
     #}
 
-<p> <strong> Critiques des utilisateurs : </strong>
+<p> <strong class="text-danger"> Critiques des utilisateurs : </strong>
+</div>
     {#
     {% if commentaire.avisUtilisateur is not null %} {{ commentaire.avisUtilisateur }} /20 {% endif %} </p>
     <a class="btn btn-info" href={{ path= ('list_avis') }}> Voir les avis </a> 
     <a class="btn btn-info"> Voir les critiques </a>
     #}
 
-<p> <strong> Disponible sur : </strong>
-    {% if film.dispo is not null %} {{ film.dispo }} {% endif %} </p>
-
-<p> <strong> Bande-annonce : </strong> <br>
-    {% if film.bandeAnnonce is not null %}
-        <iframe width="560" height="315" src={{ film.bandeAnnonce }} title="YouTube video player" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-        </iframe>
-    {% endif %}
-</p>
-
-<p> <strong> OST : </strong> <br> 
+<p class="mt-5"> <strong class="text-danger"> OST : </strong> <br> 
     {% if film.ost is not null %} 
-        <a class="font-weight-bold text-danger" target="_blank" href= {{ film.ost }} > {{ film.ost }} </a>
+        <a class="font-weight-bold text-dark" target="_blank" href= {{ film.ost }} > {{ film.ost }} </a>
     {% endif %}
 </p>
 
-<p> <strong> Affiche : </strong> <br>
-    {% if film.affiche is not null %}
-        <img src="{{ asset('img/affiches/' ~ film.affiche) }}" alt="affiche">
-    {% endif %} </p> 
-
-<p> <strong> Si vous avez aimé ce film, vous pourriez aimer : </strong>
+<p class="mt-5"> <strong class="text-danger"> Si vous avez aimé ce film, vous pourriez aimer : </strong>
     {% if film.suggestion is not null %}
     <ul>
         {% for suggestion in film.suggestion %}
@@ -105,6 +116,16 @@ pour noter et/ou laisser un avis sur ce film. </h5>
 #}
 <br> <br>
 <a class="btn-block btn-lg btn-info text-center" href={{ path('list_film') }}> RETOUR SUR LA LISTE DES FILMS </a>
-<br> <br> <br>
+<br> <br> 
+
+{% if is_granted("ROLE_ADMIN") %}
+<a class="btn-block btn-lg btn-warning text-center" href={{ path('update_film', {id: film.id}) }}> MODIFIER CE FILM </a>
+<br>
+<br>
+<a class="btn-block btn-lg btn-danger text-center" href={{ path('delete_film', {id: film.id}) }}> SUPPRIMER CE FILM </a>
+<br>
+<br>
+
+{% endif %}
 
 {% endblock %}

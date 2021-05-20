@@ -7,12 +7,7 @@
 <br>
 <h1 class="text-center"> Liste des réalisateurs </h1>
 <br>
-<nav class="navbar navbar-light bg-light">
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form>
-</nav>
+<br>
 <table class="table" id="realisateur_table">
     <thead>
         <th>Nom</th>
@@ -38,5 +33,5 @@
     </tbody>
 </table>
 
-<a href={{ path('create_realisateur') }} class="btn btn-primary ml-4 mr-4">Ajouter un nouveau réalisateur</a>
+<a href={{ path('create_realisateur') }} class="btn btn-success ml-4 m-5">Ajouter un nouveau réalisateur</a>
 {% endblock %}
