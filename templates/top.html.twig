@@ -4,8 +4,14 @@
 
 
 {% block body %}
+<div class="py-base">
+    <h1 class="text-center"> TOP DE LA RÉDAC' </h1>
 
-<h1 class="text-center"> TOP DE LA RÉDAC' </h1>
+    <div class="d-flex justify-content-around">
+        <img src={{ asset('img/avatarAyane.jpg')}} alt="avatar zombie">
+        <img src={{ asset('img/avatarKevin.jpg')}} alt="avatar zombie">
+        <img src={{ asset('img/avatarYann.jpg')}} alt="avatar zombie">
+    </div>
 
 <div class="d-flex justify-content-between m-5">
     <div class="card" style="width: 18rem;">
@@ -62,7 +68,6 @@
 
 
 
+    </div>
 
-
-
-{% endblock %}
+    {% endblock %}

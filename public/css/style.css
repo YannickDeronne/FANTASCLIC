@@ -1,13 +1,30 @@
-.fantasclic {
-    font-weight: bold !important;
-    color: red;
+/* *********************General********************* */
+.py-base {
+    padding: 3.5rem 0;
 }
 
+
+/* *********************Nav bar********************* */
 .nav-link,
 .footer-text {
     font-family: 'Girassol', cursive;
 }
 
-.body {
-    font-family: 'Montserrat' !important;
+.nav-bar-ticket-1 {
+    background-image: url('../img/navTicket4-no-bg.png');
+    background-size: cover;
+    width: 12rem;
+    padding-top: 1.2rem;
+}
+
+
+/* *********************Qui sommes-nous ?********************* */
+.fantasclic {
+    font-weight: bold;
+    color: red;
+}
+
+/* *********************Qui sommes-nous ?********************* */
+.admin-menu-btn a {
+    font-size: 0.9rem;
 }

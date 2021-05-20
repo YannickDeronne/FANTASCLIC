@@ -1,0 +1,4 @@
+"9","jack.torrance@shining.com","[""ROLE_USER""]","$argon2id$v=19$m=65536,t=4,p=1$UXY0TFlZZFZ3UU9HeXhzLw$T1WSjTIhw8nd81Ziys13oY7XVPggmXFTkBnVB1GjKHA","1960","jack-60a591a644838.png","Jack"
+"10","ellen.ripley@alien.com","[""ROLE_USER""]","$argon2id$v=19$m=65536,t=4,p=1$SUNYRGRsay5rSlo1ZFpTRA$PhzZoYXgCo1hwlr2S2O2z3IsQqw/FRyo8NkwcKhypKM","1980","Ellen-60a592934f2e2.png","Ellen"
+"11","michael.myers@halloween.com","[""ROLE_USER""]","$argon2id$v=19$m=65536,t=4,p=1$dmxQN0Zoazl6TkluMG1tNQ$5nooZLTQm432cOUMovOP65SD/nFTOWFs/Fr8CJgd9bE","1965","michael-60a5932a2cf1f.png","Michael"
+"12","admin@fantasclic.com","[""ROLE_ADMIN""]","$argon2id$v=19$m=65536,t=4,p=1$a1l3QzZhYnkwSHdmMWRaRQ$OQmGc6KE4qu6vJ23fixqEaaRAmm3i0MdUt6/COSIdO4","1980","admin-60a59455e1644.png","Admin"
