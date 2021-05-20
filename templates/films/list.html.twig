@@ -5,34 +5,26 @@
 
 {% block body %}
 
+<br>
 <h1 class="text-center"> Liste des films </h1>
-
-<br> 
-
-{# {% if is_granted('ROLE_ADMIN') %}  #}
-    <a class="btn-block btn-lg btn-success text-center" href={{ path('create_film') }}> AJOUTER UN FILM </a> 
-{# {% endif %} #}
-
 <br>
 
-<ul style="list-style-type: none">
+<div class="card-deck">
     {% for film in filmList %}
-        <li>
-            <img src="{{ asset('img/affiches/' ~ film.affiche) }}" alt="affiche">
-        </li>
-        <li>
-            <a class="btn btn-info" href={{ path('detail_film', {id:film.id}) }} > Détails </a>
-        </li>
-        <li>
-            {{ film.titre }} 
-            {% if film.annee is not null %}
-                ({{ film.annee }})
-            {% endif %}
-        </li> <br> <br>
+        <div class="card-body">
+            <a href={{ path('detail_film', {id:film.id}) }} >
+                <img src="{{ asset('img/affiches/' ~ film.affiche) }}" alt="affiche">
+            </a>
+            <h4 class="card-title text-center">
+                {{ film.titre }} 
+                {% if film.annee is not null %}
+                    ({{ film.annee }})
+                {% endif %}
+            </h4>
+        </div>
     {% endfor %}
-</ul>
+</div>
 
-<br> <br>
 
 {# {% if is_granted('ROLE_ADMIN') %}  #}
     <a class="btn-block btn-lg btn-success text-center" href={{ path('create_film') }}> AJOUTER UN FILM </a> 

@@ -67,7 +67,7 @@
             {% endif %}
         </p>
 
-        <p> <strong> OST : </strong> <br>
+        <p> <strong> OST : </strong> <br> <br>
             {% if film.ost is not null %} 
                 <a class="d-line p-2 bg-white text-danger" target="_blank" href= {{ film.ost }} > {{ film.ost }} </a>
             {% endif %}
@@ -94,9 +94,9 @@
         <!-- Decommenter quand note film est créé -->
         {#<a class="btn btn-success" href={{ path('note_film', {id:film.id}) }} >#} Noter ce film </a>
         {% else %}
-        <p> Veuillez-vous <a href={{ path('app_login') }}> connecter </a>
+        <h5 class="d-line p-2 bg-white text-danger text-center"> Veuillez-vous <a href={{ path('app_login') }}> connecter </a>
             ou vous <a href={{ path('register_utilisateur') }}> enregistrer </a>
-            pour noter et/ou laisser un avis sur ce film. </p>
+            pour noter et/ou laisser un avis sur ce film. </h5>
         {% endif %}
 
         <br>
@@ -110,7 +110,7 @@
         {# {% endif %} #}
 
         <br> <br>
-        <a class="btn-block btn-lg btn-info text-center" href={{ path('list_film', {id:film.id}) }}> RETOUR SUR LA LISTE DES FILMS </a>
+        <a class="btn-block btn-lg btn-info text-center" href={{ path('list_film') }}> RETOUR SUR LA LISTE DES FILMS </a>
         <br> <br> <br>
 
         {% endblock %}
