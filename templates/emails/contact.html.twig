@@ -3,7 +3,15 @@
 {% block title %}Nous contacter{% endblock %}
 
 {% block body %}
+
 <div class="py-base mx-auto container" style="max-width: 50rem">
+    <!-- Message flash -->
+    {% for message in app.flashes('notif') %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+    {% endfor %}
+
     <h1>Nous contacter</h1>
     <p>* champs obligatoires</p>
     {{ form_start(form) }}
