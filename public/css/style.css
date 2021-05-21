@@ -4,7 +4,7 @@
 }
 
 
-/* *********************Nav bar********************* */
+/* *********************Nav bar / footer********************* */
 .nav-link,
 .footer-text {
     font-family: 'Girassol', cursive;
@@ -17,6 +17,13 @@
     padding-top: 1.2rem;
 }
 
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
 
 /* *********************Qui sommes-nous ?********************* */
 .fantasclic {
@@ -24,7 +31,11 @@
     color: red;
 }
 
-/* *********************Qui sommes-nous ?********************* */
+/* *********************Admin ********************* */
 .admin-menu-btn a {
     font-size: 0.9rem;
+}
+
+.profil div {
+    font-size: 1.3rem;
 }

@@ -81,11 +81,11 @@
                 {% if is_granted("ROLE_USER") %}
                 <div>
                     <div>
-                        <a class="nav-link btn btn-info mt-1" style="color:white;" href={{ path('app_logout') }}>SE
+                        <a class="nav-link btn btn-secondary mt-1" style="color:white;" href={{ path('app_logout') }}>SE
                             DECONNECTER</a>
                     </div>
                     <div>
-                        <a class="nav-link btn btn-info mt-2" style="color:white;"
+                        <a class="nav-link btn btn-secondary mt-2" style="color:white;"
                             href={{ path('detail_utilisateur') }}>ESPACE
                             PERSONNEL</a>
                     </div>
@@ -101,15 +101,15 @@
         </div>
     </nav>
 
-{# Wallpaper sang #}
+    {# Wallpaper sang #}
 
-    <div class="container"> 
+    <div class="container">
         {% block body %}
         {% endblock %}
     </div>
 
     <!-- footer -->
-    <footer class="py-1" style="background-color: #0a0a0a;">
+    <footer class="py-1 footer" style="background-color: #0a0a0a; bottom:0">
         <div class="container">
             <div class="d-flex justify-content-around py-2">
                 <a style="color: #fff" class="lead footer-text" href={{ path('contact') }}>

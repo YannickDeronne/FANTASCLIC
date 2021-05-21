@@ -3,39 +3,48 @@
 {% block title %} Page Administration {% endblock %}
 
 {% block body %}
-<div class="mx-auto container" style="max-width: 50rem; background-color: #fff;">
+<div class="mx-auto py-base container" style="max-width: 50rem; background-color: #fff;">
     <h1>Page Administration</h1>
     <!-- menu réservé au rôle Admin -->
     <div class="container">
         <h3>Gestion des films</h3>
-        <div class="admin-menu-btn d-flex justify-content-around">
-            <a class="btn btn-outline-primary m-3 text-uppercase" style="text-align:center"
-                href={{ path('list_film') }}>Liste
-                des films (modifier/supprimer)</a>
-            <a class="btn btn-outline-primary m-3 text-uppercase" style="text-align:center"
-                href={{ path('create_film') }}>Ajouter un film</a>
+        <div class="admin-menu-btn row">
+            <div class="col-md-7">
+                <a class="btn btn-secondary m-3 text-uppercase" style="text-align:center"
+                    href={{ path('list_film') }}>Liste
+                    des films (modifier/supprimer)</a>
+            </div>
+            <div class="col-md-5">
+                <a class="btn btn-secondary m-3 text-uppercase" style="text-align:center"
+                    href={{ path('create_film') }}>Ajouter un film</a>
+            </div>
         </div>
 
         <h3>Gestion des réalisateurs</h3>
-        <div class="admin-menu-btn d-flex justify-content-around">
-            <a class="btn btn-outline-primary m-3 text-uppercase" style="text-align:center"
-                href={{ path('list_realisateur') }}>Liste des réalisateurs (modifier/supprimer)</a>
-            <a class="btn btn-outline-primary m-3 text-uppercase" style="text-align:center"
-                href={{ path('create_realisateur') }}>Ajouter un réalisateur</a>
+        <div class="admin-menu-btn row">
+            <div class="col-md-7">
+                <a class="btn btn-secondary m-3 text-uppercase" style="text-align:center"
+                    href={{ path('list_realisateur') }}>Liste des réalisateurs (modifier/supprimer)</a>
+            </div>
+            <div class="col-md-5">
+                <a class="btn btn-secondary m-3 text-uppercase" style="text-align:center"
+                    href={{ path('create_realisateur') }}>Ajouter un réalisateur</a></div>
         </div>
 
         <h3>Gestion des genres</h3>
-        <div class="admin-menu-btn d-flex justify-content-around">
-            <a class="btn btn-outline-primary m-3 text-uppercase" style="text-align:center"
-                href={{ path('list_genre') }}>Liste
-                des genres(modifier/supprimer)</a>
-            <a class="btn btn-outline-primary m-3 text-uppercase" style="text-align:center"
-                href={{ path('create_genre') }}>Ajouter un genre</a>
+        <div class="admin-menu-btn row">
+            <div class="col-md-7">
+                <a class="btn btn-secondary m-3 text-uppercase" style="text-align:center"
+                    href={{ path('list_genre') }}>Liste
+                    des genres(modifier/supprimer)</a></div>
+            <div class="col-md-5">
+                <a class="btn btn-secondary m-3 text-uppercase" style="text-align:center"
+                    href={{ path('create_genre') }}>Ajouter un genre</a></div>
         </div>
 
         <h3>Gestion de compte Admin</h3>
-        <div class="admin-menu-btn d-flex">
-            <a class="btn btn-outline-primary m-3 text-uppercase" style="text-align:center"
+        <div class="admin-menu-btn">
+            <a class="btn btn-secondary m-3 text-uppercase" style="text-align:center"
                 href={{ path('register_admin') }}>Ajouter un nouveau compte Admin</a>
         </div>
 

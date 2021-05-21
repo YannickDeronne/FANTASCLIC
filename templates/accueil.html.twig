@@ -10,7 +10,7 @@
 </div>
 {% endfor %}
 
-<div id="carouselExampleCaptions" class="carousel slide w-50" style="margin:auto" data-ride="carousel">
+<div id="carouselExampleCaptions" class="carousel slide w-50 mb-5" style="margin:auto" data-ride="carousel">
   <ol class="carousel-indicators m-auto">
     <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active" style="width:10%; margin:0;"></li>
     <li data-target="#carouselExampleCaptions" data-slide-to="1" style="width:10%; margin:0;"></li>
@@ -18,50 +18,57 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active mt-5">
-      <a href="#"><img src={{ asset('img/affiches/Jaws.jpg')}} class="d-block w-100 m-auto rounded" alt="..."></a>
+      <a href={{ path('detail_film', {id:24}) }}><img src={{ asset('img/affiches/Jaws.jpg')}}
+          class="d-block w-100 m-auto rounded" alt="..."></a>
       <div class="carousel-caption d-none d-md-block">
       </div>
       <h2 class="my-5 text-center font-weight-bold">Les dents de la mer (1975)</h2>
     </div>
     <div class="carousel-item mt-5">
-      <a href="#"><img src={{ asset('img/affiches/heredite.jpg')}} class="d-block w-100 m-auto rounded" alt="..."></a>
+      <a href={{ path('detail_film', {id:21}) }}><img src={{ asset('img/affiches/heredite.jpg')}}
+          class="d-block w-100 m-auto rounded" alt="..."></a>
       <div class="carousel-caption d-none d-md-block">
       </div>
       <h2 class="my-5 text-center font-weight-bold">Hérédité (2018)</h2>
     </div>
     <div class="carousel-item mt-5">
-      <a href="#"><img src={{ asset('img/affiches/Shining.jpg')}} class="d-block w-100 m-auto rounded" alt="..."></a>
+      <a href={{ path('detail_film', {id:11}) }}><img src={{ asset('img/affiches/Shining.jpg')}}
+          class="d-block w-100 m-auto rounded" alt="..."></a>
       <div class="carousel-caption d-none d-md-block">
       </div>
       <h2 class="my-5 text-center font-weight-bold">Shining (1980)</h2>
     </div>
     <div class="carousel-item mt-5">
-      <a href="#"><img src={{ asset('img/affiches/Alien.jpg')}} class="d-block w-100 m-auto rounded" alt="..."></a>
+      <a href={{ path('detail_film', {id:13}) }}><img src={{ asset('img/affiches/Alien.jpg')}}
+          class="d-block w-100 m-auto rounded" alt="..."></a>
       <div class="carousel-caption d-none d-md-block">
       </div>
       <h2 class="my-5 text-center font-weight-bold">Alien (1979)</h2>
     </div>
     <div class="carousel-item mt-5">
-      <a href="#"><img src={{ asset('img/affiches/halloween.jpg')}} class="d-block w-100 m-auto rounded" alt="..."></a>
+      <a href={{ path('detail_film', {id:8}) }}><img src={{ asset('img/affiches/halloween.jpg')}}
+          class="d-block w-100 m-auto rounded" alt="..."></a>
       <div class="carousel-caption d-none d-md-block">
       </div>
       <h2 class="my-5 text-center font-weight-bold">Halloween (1978)</h2>
     </div>
     <div class="carousel-item mt-5">
-      <a href="#"><img src={{ asset('img/affiches/Psychose.jpg')}} class="d-block w-100 m-auto rounded" alt="..."></a>
+      <a href={{ path('detail_film', {id:42}) }}><img src={{ asset('img/affiches/Psychose.jpg')}}
+          class="d-block w-100 m-auto rounded" alt="..."></a>
       <div class="carousel-caption d-none d-md-block">
       </div>
       <h2 class="my-5 text-center font-weight-bold">Psychose (1960)</h2>
     </div>
     <div class="carousel-item mt-5">
-      <a href="#"><img src={{ asset('img/affiches/Scream.jpg')}} class="d-block w-100 m-auto rounded" alt="..."></a>
+      <a href={{ path('detail_film', {id:23}) }}><img src={{ asset('img/affiches/Scream.jpg')}}
+          class="d-block w-100 m-auto rounded" alt="..."></a>
       <div class="carousel-caption d-none d-md-block">
       </div>
       <h2 class="my-5 text-center font-weight-bold">Scream (1996)</h2>
     </div>
     <div class="carousel-item mt-5">
-      <a href="#"><img src={{ asset('img/affiches/villageDamnes.jpg')}} class="d-block w-100 m-auto rounded"
-          alt="..."></a>
+      <a href={{ path('detail_film', {id:16}) }}><img src={{ asset('img/affiches/villageDamnes.jpg')}}
+          class="d-block w-100 m-auto rounded" alt="..."></a>
       <div class="carousel-caption d-none d-md-block">
       </div>
       <h2 class="my-5 text-center font-weight-bold">Le village des damnés (1995)</h2>
@@ -76,6 +83,5 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-
 
 {% endblock %}
